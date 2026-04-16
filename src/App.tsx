@@ -1,38 +1,138 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import WorldMap from "./components/WorldMap";
 import ConflictPanel from "./components/ConflictPanel";
+import MapControls from "./components/MapControls";
+import Timeline from "./components/Timeline";
+import Header from "./components/Header";
+import AboutModal from "./components/AboutModal";
 import { conflicts } from "./data/conflicts";
-import type { Conflict } from "./lib/types";
+import { ALL_REGIONS, applyFilter, type Filter } from "./lib/filter";
+
+const AXIS_MIN = 1945;
+const AXIS_MAX = new Date().getFullYear();
+
+function readHashId(): string | null {
+  if (typeof window === "undefined") return null;
+  const id = window.location.hash.replace(/^#/, "");
+  return id && conflicts.some((c) => c.id === id) ? id : null;
+}
 
 export default function App() {
-  // Default to Vietnam (the only seeded entry) so the scaffold demo shows
-  // content immediately.
-  const [selected, setSelected] = useState<Conflict>(conflicts[0]);
+  const [selectedId, setSelectedId] = useState<string | null>(readHashId);
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [aboutOpen, setAboutOpen] = useState(false);
+  const [filter, setFilter] = useState<Filter>({
+    minYear: AXIS_MIN,
+    maxYear: AXIS_MAX,
+    regions: [...ALL_REGIONS],
+    query: "",
+  });
+
+  const filtered = useMemo(() => applyFilter(conflicts, filter), [filter]);
+  const selected = useMemo(
+    () => conflicts.find((c) => c.id === selectedId) ?? null,
+    [selectedId],
+  );
+
+  // Selection → hash.
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    url.hash = selectedId ?? "";
+    window.history.replaceState(null, "", url.toString());
+  }, [selectedId]);
+
+  // React to user changing the hash manually (back/forward, paste).
+  useEffect(() => {
+    const onHash = () => setSelectedId(readHashId());
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
+
+  // Global keyboard: ESC closes, arrow keys navigate filtered set.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        if (aboutOpen) return; // AboutModal handles its own ESC
+        if (selectedId) {
+          e.preventDefault();
+          setSelectedId(null);
+        }
+        return;
+      }
+      if (!selectedId) return;
+      if (
+        e.key !== "ArrowLeft" &&
+        e.key !== "ArrowRight" &&
+        e.key !== "ArrowUp" &&
+        e.key !== "ArrowDown"
+      ) {
+        return;
+      }
+      const target = e.target as HTMLElement | null;
+      if (
+        target &&
+        (target.tagName === "INPUT" ||
+          target.tagName === "TEXTAREA" ||
+          target.isContentEditable)
+      ) {
+        return;
+      }
+      const list = filtered.length > 0 ? filtered : conflicts;
+      const idx = list.findIndex((c) => c.id === selectedId);
+      if (idx === -1) return;
+      const dir =
+        e.key === "ArrowRight" || e.key === "ArrowDown" ? 1 : -1;
+      const next = list[(idx + dir + list.length) % list.length];
+      if (next) {
+        e.preventDefault();
+        setSelectedId(next.id);
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [selectedId, filtered, aboutOpen]);
 
   return (
     <div className="flex h-full min-h-screen flex-col">
-      <header className="border-b border-parchment/10 px-6 py-4">
-        <h1 className="text-2xl font-semibold tracking-wide text-parchment">
-          Fortunate Son
-        </h1>
-        <p className="text-xs text-parchment/60">
-          Post-WWII conflicts and the music that travels with them. 1945 →
-          present.
-        </p>
-      </header>
+      <Header onAbout={() => setAboutOpen(true)} />
 
-      <main className="flex flex-1 flex-col md:flex-row md:overflow-hidden">
-        <section className="md:flex-1 md:overflow-hidden">
-          <WorldMap
-            conflicts={conflicts}
-            selectedId={selected.id}
-            onSelect={setSelected}
+      <main className="relative flex-1 overflow-hidden">
+        <WorldMap
+          conflicts={filtered}
+          selectedId={selectedId}
+          hoveredId={hoveredId}
+          onSelect={(c) => setSelectedId(c.id)}
+          onHover={setHoveredId}
+          minYear={filter.minYear}
+          maxYear={filter.maxYear}
+        />
+        <div className="pointer-events-none absolute left-4 top-4 z-20">
+          <MapControls
+            filter={filter}
+            onChange={setFilter}
+            minYearBound={AXIS_MIN}
+            maxYearBound={AXIS_MAX}
           />
-        </section>
-        <section className="md:w-[28rem] md:max-w-[40%] md:overflow-hidden">
-          <ConflictPanel conflict={selected} />
-        </section>
+        </div>
       </main>
+
+      <Timeline
+        conflicts={conflicts}
+        selectedId={selectedId}
+        hoveredId={hoveredId}
+        onSelect={(c) => setSelectedId(c.id)}
+        onHover={setHoveredId}
+        minYear={filter.minYear}
+        maxYear={filter.maxYear}
+        axisMinYear={AXIS_MIN}
+        axisMaxYear={AXIS_MAX}
+      />
+
+      <ConflictPanel
+        conflict={selected}
+        onClose={() => setSelectedId(null)}
+      />
+      <AboutModal open={aboutOpen} onClose={() => setAboutOpen(false)} />
     </div>
   );
 }

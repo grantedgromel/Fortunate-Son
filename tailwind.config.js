@@ -4,13 +4,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: "#0e0e10",
-        parchment: "#f3ecd8",
-        rust: "#a3431a",
-        olive: "#5c6b3a",
+        ink: "#0a0a0b",
+        surface: "#151518",
+        slate1: "#1e1f23",
+        slate2: "#2a2c31",
+        slate3: "#3a3d44",
+        parchment: "#ece7d9",
+        accent: "#D4B483",
       },
       fontFamily: {
-        serif: ["Georgia", "Cambria", "Times New Roman", "serif"],
+        serif: ['"Fraunces"', "Georgia", "Cambria", "serif"],
+        sans: ['"Inter"', "system-ui", "sans-serif"],
       },
     },
   },

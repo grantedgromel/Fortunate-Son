@@ -9,6 +9,59 @@ body,
 }
 
 body {
-  @apply bg-ink text-parchment font-serif antialiased;
+  @apply bg-ink text-parchment font-sans antialiased;
   margin: 0;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  @apply font-serif;
+}
+
+:focus-visible {
+  outline: 2px solid theme("colors.accent");
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Thin, muted scrollbar inside the drawer */
+.drawer-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.drawer-scroll::-webkit-scrollbar-thumb {
+  background: theme("colors.slate3");
+  border-radius: 4px;
+}
+
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+  .no-print,
+  header.app-header,
+  .app-map,
+  .app-timeline,
+  .app-controls,
+  .drawer-close {
+    display: none !important;
+  }
+  .app-drawer {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background: #fff !important;
+    color: #000 !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  .app-drawer * {
+    color: #000 !important;
+  }
+  iframe {
+    display: none !important;
+  }
 }
