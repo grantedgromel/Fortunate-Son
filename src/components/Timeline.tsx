@@ -5,6 +5,8 @@ import { REGION_LABELS } from "../lib/filter";
 
 interface Props {
   conflicts: Conflict[];
+  /** Ids that pass the active map filter. Bars outside this set render dimmed. */
+  filteredIds?: Set<string>;
   selectedId?: string | null;
   hoveredId?: string | null;
   onSelect: (c: Conflict) => void;
@@ -17,6 +19,7 @@ interface Props {
 
 export default function Timeline({
   conflicts,
+  filteredIds,
   selectedId,
   hoveredId,
   onSelect,
@@ -112,6 +115,9 @@ export default function Timeline({
                       const band = decadeBand(c.startYear);
                       const isActive =
                         c.id === selectedId || c.id === hoveredId;
+                      const inFilter =
+                        !filteredIds || filteredIds.has(c.id);
+                      const baseOpacity = inFilter ? 0.72 : 0.18;
                       return (
                         <button
                           key={c.id}
@@ -131,7 +137,7 @@ export default function Timeline({
                             top: 4 + (i % 3) * 7,
                             height: isActive ? 7 : 5,
                             background: DECADE_COLORS[band],
-                            opacity: isActive ? 1 : 0.72,
+                            opacity: isActive ? 1 : baseOpacity,
                             outline: isActive
                               ? `1px solid #ece7d9`
                               : "none",

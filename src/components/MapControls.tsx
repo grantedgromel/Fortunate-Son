@@ -69,24 +69,42 @@ export default function MapControls({
             {filter.minYear}–{filter.maxYear}
           </span>
         </div>
-        <input
-          type="range"
-          min={minYearBound}
-          max={maxYearBound}
-          value={filter.minYear}
-          onChange={(e) => setMin(Number(e.target.value))}
-          aria-label="Earliest year"
-          className="accent-accent"
-        />
-        <input
-          type="range"
-          min={minYearBound}
-          max={maxYearBound}
-          value={filter.maxYear}
-          onChange={(e) => setMax(Number(e.target.value))}
-          aria-label="Latest year"
-          className="accent-accent"
-        />
+        <div className="dual-range relative h-6 px-[7px]">
+          <div className="pointer-events-none absolute inset-x-[7px] top-1/2 h-1 -translate-y-1/2 rounded-full bg-slate2" />
+          <div
+            className="pointer-events-none absolute top-1/2 h-1 -translate-y-1/2 rounded-full bg-accent/70"
+            style={{
+              left: `calc(${
+                ((filter.minYear - minYearBound) /
+                  Math.max(1, maxYearBound - minYearBound)) *
+                100
+              }% + 0px)`,
+              right: `calc(${
+                ((maxYearBound - filter.maxYear) /
+                  Math.max(1, maxYearBound - minYearBound)) *
+                100
+              }% + 0px)`,
+            }}
+          />
+          <input
+            type="range"
+            min={minYearBound}
+            max={maxYearBound}
+            value={filter.minYear}
+            onChange={(e) => setMin(Number(e.target.value))}
+            aria-label="Earliest year"
+            className="dual-range__input"
+          />
+          <input
+            type="range"
+            min={minYearBound}
+            max={maxYearBound}
+            value={filter.maxYear}
+            onChange={(e) => setMax(Number(e.target.value))}
+            aria-label="Latest year"
+            className="dual-range__input dual-range__input--upper"
+          />
+        </div>
         <ol className="mt-1 flex gap-1 text-[10px] uppercase tracking-wider text-parchment/50">
           {DECADE_ORDER.map((band) => (
             <li key={band} className="flex items-center gap-1">

@@ -35,6 +35,62 @@ h3,
   border-radius: 4px;
 }
 
+/* Dual-handle range slider: two stacked native inputs whose tracks are
+   transparent and non-interactive, leaving only the visible thumbs to
+   receive pointer events. The "upper" input sits above so that when the
+   two thumbs converge the user can always drag them apart. */
+.dual-range__input {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+  z-index: 3;
+}
+.dual-range__input--upper {
+  z-index: 4;
+}
+.dual-range__input::-webkit-slider-runnable-track {
+  background: transparent;
+  border: none;
+}
+.dual-range__input::-moz-range-track {
+  background: transparent;
+  border: none;
+}
+.dual-range__input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  pointer-events: auto;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: theme("colors.accent");
+  border: 2px solid theme("colors.ink");
+  cursor: grab;
+  margin-top: 0;
+}
+.dual-range__input::-moz-range-thumb {
+  pointer-events: auto;
+  width: 14px;
+  height: 14px;
+  border: 2px solid theme("colors.ink");
+  border-radius: 9999px;
+  background: theme("colors.accent");
+  cursor: grab;
+}
+.dual-range__input:active::-webkit-slider-thumb {
+  cursor: grabbing;
+}
+.dual-range__input:active::-moz-range-thumb {
+  cursor: grabbing;
+}
+
 @media print {
   body {
     background: #fff;

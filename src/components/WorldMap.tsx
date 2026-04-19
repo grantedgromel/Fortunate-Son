@@ -1,4 +1,10 @@
-import { ComposableMap, Geographies, Geography, Sphere } from "react-simple-maps";
+import {
+  ComposableMap,
+  Geographies,
+  Geography,
+  Sphere,
+  ZoomableGroup,
+} from "react-simple-maps";
 import type { Conflict } from "../lib/types";
 import ConflictMarker from "./ConflictMarker";
 import { inYearRange } from "../lib/filter";
@@ -14,6 +20,10 @@ interface Props {
   onHover: (id: string | null) => void;
   minYear: number;
   maxYear: number;
+  /** Controlled camera (lng, lat). */
+  center: [number, number];
+  /** Controlled camera zoom. */
+  zoom: number;
 }
 
 export default function WorldMap({
@@ -24,6 +34,8 @@ export default function WorldMap({
   onHover,
   minYear,
   maxYear,
+  center,
+  zoom,
 }: Props) {
   return (
     <div className="app-map relative h-full w-full bg-ink">
@@ -34,51 +46,62 @@ export default function WorldMap({
         height={520}
         style={{ width: "100%", height: "100%" }}
       >
-        <Sphere
-          id="rsm-sphere"
-          stroke="#2a2c31"
-          strokeWidth={0.6}
-          fill="#0e0f12"
-        />
-        <Geographies geography={GEO_URL}>
-          {({ geographies }: { geographies: Array<{ rsmKey: string }> }) =>
-            geographies.map((geo) => (
-              <Geography
-                key={geo.rsmKey}
-                geography={geo}
-                style={{
-                  default: {
-                    fill: "#1e1f23",
-                    stroke: "#2a2c31",
-                    strokeWidth: 0.5,
-                    outline: "none",
-                  },
-                  hover: {
-                    fill: "#24262b",
-                    stroke: "#3a3d44",
-                    strokeWidth: 0.5,
-                    outline: "none",
-                  },
-                  pressed: {
-                    fill: "#24262b",
-                    outline: "none",
-                  },
-                }}
-              />
-            ))
-          }
-        </Geographies>
-        {conflicts.map((c) => (
-          <ConflictMarker
-            key={c.id}
-            conflict={c}
-            selected={c.id === selectedId}
-            hovered={c.id === hoveredId}
-            dimmed={!inYearRange(c, minYear, maxYear)}
-            onSelect={onSelect}
-            onHover={onHover}
+        <ZoomableGroup
+          center={center}
+          zoom={zoom}
+          minZoom={1}
+          maxZoom={8}
+          translateExtent={[
+            [-200, -200],
+            [1180, 720],
+          ]}
+        >
+          <Sphere
+            id="rsm-sphere"
+            stroke="#2a2c31"
+            strokeWidth={0.6}
+            fill="#0e0f12"
           />
-        ))}
+          <Geographies geography={GEO_URL}>
+            {({ geographies }: { geographies: Array<{ rsmKey: string }> }) =>
+              geographies.map((geo) => (
+                <Geography
+                  key={geo.rsmKey}
+                  geography={geo}
+                  style={{
+                    default: {
+                      fill: "#1e1f23",
+                      stroke: "#2a2c31",
+                      strokeWidth: 0.5,
+                      outline: "none",
+                    },
+                    hover: {
+                      fill: "#24262b",
+                      stroke: "#3a3d44",
+                      strokeWidth: 0.5,
+                      outline: "none",
+                    },
+                    pressed: {
+                      fill: "#24262b",
+                      outline: "none",
+                    },
+                  }}
+                />
+              ))
+            }
+          </Geographies>
+          {conflicts.map((c) => (
+            <ConflictMarker
+              key={c.id}
+              conflict={c}
+              selected={c.id === selectedId}
+              hovered={c.id === hoveredId}
+              dimmed={!inYearRange(c, minYear, maxYear)}
+              onSelect={onSelect}
+              onHover={onHover}
+            />
+          ))}
+        </ZoomableGroup>
       </ComposableMap>
     </div>
   );

@@ -81,29 +81,21 @@ export default function ConflictMarker({
         style={{ pointerEvents: "none" }}
       />
       {(hovered || selected) && !dimmed ? (
-        <g style={{ pointerEvents: "none" }}>
-          <rect
-            x={r + 6}
-            y={-14}
-            rx={3}
-            ry={3}
-            width={label.length * 6.2 + 12}
-            height={22}
-            fill="#0a0a0b"
-            stroke="#3a3d44"
-            strokeWidth={0.75}
-            opacity={0.95}
-          />
-          <text
-            x={r + 12}
-            y={1}
-            fontSize={11}
-            fontFamily="Inter, system-ui, sans-serif"
-            fill="#ece7d9"
-          >
-            {label}
-          </text>
-        </g>
+        <text
+          x={r + 6}
+          y={3}
+          fontSize={11}
+          fontFamily="Inter, system-ui, sans-serif"
+          fontWeight={500}
+          fill="#ece7d9"
+          stroke="#0a0a0b"
+          strokeWidth={3.5}
+          strokeLinejoin="round"
+          paintOrder="stroke"
+          style={{ pointerEvents: "none" }}
+        >
+          {label}
+        </text>
       ) : null}
     </Marker>
   );
