@@ -50,7 +50,9 @@ export default function App() {
     zoom: number;
   }>({ center: DEFAULT_CENTER, zoom: DEFAULT_ZOOM });
   const cameraRef = useRef(camera);
-  cameraRef.current = camera;
+  useEffect(() => {
+    cameraRef.current = camera;
+  });
 
   useEffect(() => {
     const target = selected
@@ -80,7 +82,7 @@ export default function App() {
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [selected?.id]);
+  }, [selected]);
 
   // Selection → hash.
   useEffect(() => {

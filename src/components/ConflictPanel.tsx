@@ -32,7 +32,7 @@ export default function ConflictPanel({ conflict, onClose }: Props) {
     return () => {
       lastFocusRef.current?.focus?.();
     };
-  }, [conflict?.id]);
+  }, [conflict]);
 
   useEffect(() => {
     if (!conflict) return;
@@ -53,7 +53,7 @@ export default function ConflictPanel({ conflict, onClose }: Props) {
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
-  }, [conflict?.id]);
+  }, [conflict]);
 
   return (
     <AnimatePresence>
