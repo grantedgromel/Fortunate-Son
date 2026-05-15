@@ -1,27 +1,30 @@
 interface Props {
+  onSearch: () => void;
   onAbout: () => void;
 }
 
-export default function Header({ onAbout }: Props) {
+// Editorial masthead — Wojak helmet logo, wordmark, subhead, search + about.
+export default function Header({ onSearch, onAbout }: Props) {
   return (
-    <header className="app-header no-print flex items-start justify-between border-b border-slate2 px-6 py-4">
-      <div>
-        <h1 className="font-display text-2xl font-medium leading-none tracking-tight text-parchment">
-          Fortunate Son
-        </h1>
-        <p className="mt-1 text-xs text-parchment/60">
-          Post-1945 conflicts and the songs attached to them.
-        </p>
+    <header className="masthead">
+      <div className="mast-left">
+        <img src="/wojak-logo.png" alt="" className="mast-logo" />
+        <div>
+          <h1 className="serif title">Fortunate Sons</h1>
+          <div className="serif subhead">
+            Music from around the globe, for those born to feel.
+          </div>
+        </div>
       </div>
-      <nav>
-        <button
-          type="button"
-          onClick={onAbout}
-          className="rounded-sm border border-slate2 bg-surface px-3 py-1.5 text-xs uppercase tracking-widest text-parchment/80 hover:border-accent hover:text-accent"
-        >
-          About
+      <div className="mast-right">
+        <button className="about-btn mono micro" onClick={onAbout}>
+          ABOUT
         </button>
-      </nav>
+        <button className="search-btn" onClick={onSearch}>
+          <span>Search</span>
+          <span className="kbd mono micro">⌘K</span>
+        </button>
+      </div>
     </header>
   );
 }

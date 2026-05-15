@@ -30,6 +30,8 @@ export interface Conflict {
   aka?: string[];
   region: Region;
   country: string;
+  /** ISO 3166-1 alpha-3 codes of the countries the conflict was fought in. */
+  countries: string[];
   /** [longitude, latitude] */
   coords: [number, number];
   startYear: number;

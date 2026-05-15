@@ -3,6 +3,7 @@ import type { Conflict } from "../lib/types";
 export const conflicts: Conflict[] = [
   {
     id: "vietnam-war",
+    countries: ["VNM", "LAO", "KHM"],
     name: "Vietnam War",
     aka: ["Second Indochina War", "American War", "Resistance War Against America"],
     region: "SoutheastAsia",
@@ -82,6 +83,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "korean-war",
+    countries: ["KOR", "PRK"],
     name: "Korean War",
     aka: ["6·25 War", "Fatherland Liberation War"],
     region: "EastAsia",
@@ -142,6 +144,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "laotian-civil-war",
+    countries: ["LAO"],
     name: "Laotian Civil War",
     aka: ["Secret War in Laos"],
     region: "SoutheastAsia",
@@ -179,6 +182,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "cambodian-civil-war",
+    countries: ["KHM"],
     name: "Cambodian Civil War",
     aka: ["Khmer Republic War"],
     region: "SoutheastAsia",
@@ -235,6 +239,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "malayan-emergency",
+    countries: ["MYS"],
     name: "Malayan Emergency",
     aka: ["Anti-British National Liberation War"],
     region: "SoutheastAsia",
@@ -284,6 +289,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "indonesian-killings-1965",
+    countries: ["IDN"],
     name: "Indonesian Mass Killings",
     aka: ["1965–66 anti-communist purge", "Peristiwa 1965"],
     region: "SoutheastAsia",
@@ -339,6 +345,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "angolan-civil-war",
+    countries: ["AGO"],
     name: "Angolan Civil War",
     region: "SubSaharanAfrica",
     country: "Angola",
@@ -395,6 +402,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "mozambican-civil-war",
+    countries: ["MOZ"],
     name: "Mozambican Civil War",
     region: "SubSaharanAfrica",
     country: "Mozambique",
@@ -442,6 +450,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "eritrean-war-of-independence",
+    countries: ["ERI", "ETH"],
     name: "Eritrean War of Independence",
     aka: ["Ethiopian–Eritrean War"],
     region: "SubSaharanAfrica",
@@ -488,6 +497,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "soviet-afghan-war",
+    countries: ["AFG"],
     name: "Soviet–Afghan War",
     aka: ["Soviet war in Afghanistan"],
     region: "SouthAsia",
@@ -554,6 +564,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "nicaraguan-revolution-contra-war",
+    countries: ["NIC"],
     name: "Nicaraguan Contra War",
     aka: ["Contra War"],
     region: "LatinAmerica",
@@ -617,6 +628,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "salvadoran-civil-war",
+    countries: ["SLV"],
     name: "Salvadoran Civil War",
     region: "LatinAmerica",
     country: "El Salvador",
@@ -671,6 +683,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "guatemalan-civil-war",
+    countries: ["GTM"],
     name: "Guatemalan Civil War",
     region: "LatinAmerica",
     country: "Guatemala",
@@ -718,6 +731,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "chilean-coup-1973",
+    countries: ["CHL"],
     name: "Chilean Coup and Pinochet Dictatorship",
     aka: ["11 September 1973 coup", "Pinochet era"],
     region: "LatinAmerica",
@@ -791,6 +805,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "first-indochina-war",
+    countries: ["VNM", "LAO", "KHM"],
     name: "First Indochina War",
     aka: ["French Indochina War"],
     region: "SoutheastAsia",
@@ -835,6 +850,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "algerian-war",
+    countries: ["DZA"],
     name: "Algerian War of Independence",
     region: "MENA",
     country: "Algeria",
@@ -897,6 +913,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "mau-mau-uprising",
+    countries: ["KEN"],
     name: "Mau Mau Uprising",
     aka: ["Kenya Emergency"],
     region: "SubSaharanAfrica",
@@ -930,6 +947,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "congo-crisis",
+    countries: ["COD"],
     name: "Congo Crisis",
     region: "SubSaharanAfrica",
     country: "Democratic Republic of the Congo",
@@ -978,6 +996,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "portuguese-colonial-wars",
+    countries: ["AGO", "MOZ", "GNB"],
     name: "Portuguese Colonial Wars",
     aka: ["Overseas War"],
     region: "SubSaharanAfrica",
@@ -1033,6 +1052,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "rhodesian-bush-war",
+    countries: ["ZWE"],
     name: "Rhodesian Bush War",
     aka: ["Zimbabwean War of Liberation", "Second Chimurenga"],
     region: "SubSaharanAfrica",
@@ -1083,6 +1103,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "namibian-war-of-independence",
+    countries: ["NAM"],
     name: "Namibian War of Independence",
     aka: ["South African Border War"],
     region: "SubSaharanAfrica",
@@ -1119,6 +1140,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "arab-israeli-1948",
+    countries: ["ISR", "PSE"],
     name: "1948 Arab–Israeli War",
     aka: ["War of Independence", "Nakba"],
     region: "MENA",
@@ -1167,6 +1189,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "suez-crisis",
+    countries: ["EGY"],
     name: "Suez Crisis",
     aka: ["Sinai War", "Tripartite Aggression"],
     region: "MENA",
@@ -1193,6 +1216,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "six-day-war",
+    countries: ["ISR", "EGY", "SYR", "JOR", "PSE"],
     name: "Six-Day War",
     aka: ["June War", "Naksa"],
     region: "MENA",
@@ -1227,6 +1251,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "yom-kippur-war",
+    countries: ["ISR", "EGY", "SYR"],
     name: "Yom Kippur War",
     aka: ["October War", "Ramadan War"],
     region: "MENA",
@@ -1269,6 +1294,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "lebanese-civil-war",
+    countries: ["LBN"],
     name: "Lebanese Civil War",
     region: "MENA",
     country: "Lebanon",
@@ -1324,6 +1350,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "iran-iraq-war",
+    countries: ["IRN", "IRQ"],
     name: "Iran–Iraq War",
     region: "MENA",
     country: "Iran / Iraq",
@@ -1364,6 +1391,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "gulf-war",
+    countries: ["IRQ", "KWT"],
     name: "Gulf War",
     aka: ["First Gulf War", "Operation Desert Storm"],
     region: "MENA",
@@ -1424,6 +1452,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "iraq-war",
+    countries: ["IRQ"],
     name: "Iraq War",
     aka: ["Second Gulf War", "Operation Iraqi Freedom"],
     region: "MENA",
@@ -1495,6 +1524,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "syrian-civil-war",
+    countries: ["SYR"],
     name: "Syrian Civil War",
     region: "MENA",
     country: "Syria",
@@ -1557,6 +1587,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "yemeni-civil-war",
+    countries: ["YEM"],
     name: "Yemeni Civil War",
     region: "MENA",
     country: "Yemen",
@@ -1592,6 +1623,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "libyan-civil-war-2011",
+    countries: ["LBY"],
     name: "Libyan Civil War (2011)",
     region: "MENA",
     country: "Libya",
@@ -1628,6 +1660,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "israel-hamas-war",
+    countries: ["ISR", "PSE"],
     name: "Israel–Hamas War",
     aka: ["Gaza war", "Iron Swords"],
     region: "MENA",
@@ -1683,6 +1716,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "indo-pak-1947",
+    countries: ["IND", "PAK"],
     name: "First Kashmir War",
     aka: ["Indo-Pakistani War of 1947"],
     region: "SouthAsia",
@@ -1721,6 +1755,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "indo-pak-1965",
+    countries: ["IND", "PAK"],
     name: "Indo-Pakistani War of 1965",
     aka: ["Second Kashmir War"],
     region: "SouthAsia",
@@ -1758,6 +1793,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "bangladesh-liberation",
+    countries: ["BGD", "IND", "PAK"],
     name: "Bangladesh Liberation War",
     aka: ["Indo-Pakistani War of 1971"],
     region: "SouthAsia",
@@ -1820,6 +1856,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "sri-lankan-civil-war",
+    countries: ["LKA"],
     name: "Sri Lankan Civil War",
     region: "SouthAsia",
     country: "Sri Lanka",
@@ -1867,6 +1904,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "kashmir-insurgency",
+    countries: ["IND", "PAK"],
     name: "Kashmir Insurgency",
     region: "SouthAsia",
     country: "India / Pakistan",
@@ -1907,6 +1945,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "huk-rebellion",
+    countries: ["PHL"],
     name: "Hukbalahap Rebellion",
     aka: ["Huk Rebellion"],
     region: "SoutheastAsia",
@@ -1940,6 +1979,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "moro-conflict",
+    countries: ["PHL"],
     name: "Moro Conflict",
     region: "SoutheastAsia",
     country: "Philippines (Mindanao)",
@@ -1973,6 +2013,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "npa-insurgency",
+    countries: ["PHL"],
     name: "New People's Army Insurgency",
     aka: ["CPP–NPA–NDF rebellion"],
     region: "SoutheastAsia",
@@ -2014,6 +2055,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "east-timor-occupation",
+    countries: ["TLS", "IDN"],
     name: "East Timorese Independence War",
     aka: ["Indonesian occupation of East Timor"],
     region: "SoutheastAsia",
@@ -2056,6 +2098,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "biafra-war",
+    countries: ["NGA"],
     name: "Nigerian Civil War",
     aka: ["Biafran War"],
     region: "SubSaharanAfrica",
@@ -2103,6 +2146,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "rwandan-genocide",
+    countries: ["RWA"],
     name: "Rwandan Genocide",
     region: "SubSaharanAfrica",
     country: "Rwanda",
@@ -2156,6 +2200,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "first-congo-war",
+    countries: ["COD"],
     name: "First Congo War",
     region: "SubSaharanAfrica",
     country: "Zaire / DRC",
@@ -2191,6 +2236,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "second-congo-war",
+    countries: ["COD", "RWA", "UGA"],
     name: "Second Congo War",
     aka: ["Africa's World War", "Great War of Africa"],
     region: "SubSaharanAfrica",
@@ -2237,6 +2283,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "somali-civil-war",
+    countries: ["SOM"],
     name: "Somali Civil War",
     region: "SubSaharanAfrica",
     country: "Somalia",
@@ -2286,6 +2333,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "second-sudanese-civil-war",
+    countries: ["SDN", "SSD"],
     name: "Second Sudanese Civil War",
     region: "SubSaharanAfrica",
     country: "Sudan",
@@ -2326,6 +2374,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "war-in-darfur",
+    countries: ["SDN"],
     name: "War in Darfur",
     region: "SubSaharanAfrica",
     country: "Sudan",
@@ -2371,6 +2420,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "south-sudan-civil-war",
+    countries: ["SSD"],
     name: "South Sudanese Civil War",
     region: "SubSaharanAfrica",
     country: "South Sudan",
@@ -2418,6 +2468,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "boko-haram-insurgency",
+    countries: ["NGA", "CMR", "TCD", "NER"],
     name: "Boko Haram Insurgency",
     region: "SubSaharanAfrica",
     country: "Nigeria",
@@ -2450,6 +2501,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "tigray-war",
+    countries: ["ETH"],
     name: "Tigray War",
     region: "SubSaharanAfrica",
     country: "Ethiopia",
@@ -2489,6 +2541,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "sahel-insurgency",
+    countries: ["MLI", "BFA", "NER"],
     name: "Sahel Insurgencies",
     aka: ["Mali War", "War in the Sahel"],
     region: "SubSaharanAfrica",
@@ -2548,6 +2601,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "colombian-conflict",
+    countries: ["COL"],
     name: "Colombian Armed Conflict",
     aka: ["FARC conflict"],
     region: "LatinAmerica",
@@ -2606,6 +2660,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "peru-shining-path",
+    countries: ["PER"],
     name: "Peruvian Internal Conflict",
     aka: ["Shining Path insurgency"],
     region: "LatinAmerica",
@@ -2646,6 +2701,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "argentina-dirty-war",
+    countries: ["ARG"],
     name: "Argentina Dirty War",
     aka: ["Proceso de Reorganización Nacional"],
     region: "LatinAmerica",
@@ -2709,6 +2765,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "falklands-war",
+    countries: ["FLK"],
     name: "Falklands War",
     aka: ["Guerra de las Malvinas"],
     region: "LatinAmerica",
@@ -2767,6 +2824,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "mexican-drug-war",
+    countries: ["MEX"],
     name: "Mexican Drug War",
     region: "LatinAmerica",
     country: "Mexico",
@@ -2824,6 +2882,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "greek-civil-war",
+    countries: ["GRC"],
     name: "Greek Civil War",
     region: "Europe",
     country: "Greece",
@@ -2872,6 +2931,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "chinese-civil-war-tail",
+    countries: ["CHN"],
     name: "Chinese Civil War (post-1945 phase)",
     region: "EastAsia",
     country: "China",
@@ -2912,6 +2972,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "taiwan-strait-crises",
+    countries: ["TWN", "CHN"],
     name: "Taiwan Strait Crises",
     region: "EastAsia",
     country: "Taiwan / China",
@@ -2940,6 +3001,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "hungarian-revolution-1956",
+    countries: ["HUN"],
     name: "Hungarian Revolution of 1956",
     region: "Europe",
     country: "Hungary",
@@ -2978,6 +3040,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "prague-spring",
+    countries: ["CZE"],
     name: "Warsaw Pact Invasion of Czechoslovakia",
     aka: ["Prague Spring"],
     region: "Europe",
@@ -3028,6 +3091,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "northern-ireland-troubles",
+    countries: ["GBR"],
     name: "The Troubles",
     aka: ["Northern Ireland conflict"],
     region: "Europe",
@@ -3099,6 +3163,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "croatian-war",
+    countries: ["HRV"],
     name: "Croatian War of Independence",
     aka: ["Homeland War"],
     region: "Europe",
@@ -3147,6 +3212,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "bosnian-war",
+    countries: ["BIH"],
     name: "Bosnian War",
     region: "Europe",
     country: "Bosnia and Herzegovina",
@@ -3213,6 +3279,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "kosovo-war",
+    countries: ["KSV"],
     name: "Kosovo War",
     region: "Europe",
     country: "Kosovo",
@@ -3251,6 +3318,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "first-chechen-war",
+    countries: ["RUS"],
     name: "First Chechen War",
     region: "Europe",
     country: "Russia (Chechnya)",
@@ -3294,6 +3362,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "second-chechen-war",
+    countries: ["RUS"],
     name: "Second Chechen War",
     region: "Europe",
     country: "Russia (Chechnya)",
@@ -3332,6 +3401,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "russo-georgian-war",
+    countries: ["GEO", "RUS"],
     name: "Russo-Georgian War",
     region: "Europe",
     country: "Georgia",
@@ -3361,6 +3431,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "war-in-donbas",
+    countries: ["UKR"],
     name: "War in Donbas",
     region: "Europe",
     country: "Ukraine",
@@ -3407,6 +3478,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "russian-invasion-of-ukraine",
+    countries: ["UKR"],
     name: "Russian Invasion of Ukraine",
     region: "Europe",
     country: "Ukraine",
@@ -3470,6 +3542,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "nagorno-karabakh-conflict",
+    countries: ["AZE", "ARM"],
     name: "Nagorno-Karabakh Conflict",
     region: "Europe",
     country: "Azerbaijan / Armenia",
@@ -3515,6 +3588,7 @@ export const conflicts: Conflict[] = [
 
   {
     id: "cuban-missile-crisis",
+    countries: ["CUB"],
     name: "Cuban Missile Crisis",
     region: "LatinAmerica",
     country: "Cuba",

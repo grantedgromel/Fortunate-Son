@@ -4,17 +4,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: "#0a0a0b",
-        surface: "#151518",
-        slate1: "#1e1f23",
-        slate2: "#2a2c31",
-        slate3: "#3a3d44",
-        parchment: "#ece7d9",
-        accent: "#D4B483",
+        // Economist-editorial palette (Claude Design redesign).
+        bg: "#f3ece0",
+        paper: "#ece4d4",
+        ink: "#1a1a1a",
+        accent: "#b8332f",
+        blue: "#2a4d6e",
+        land: "#e1d8c4",
+        sea: "#eee6d6",
       },
       fontFamily: {
-        serif: ['"Fraunces"', "Georgia", "Cambria", "serif"],
-        sans: ['"Inter"', "system-ui", "sans-serif"],
+        serif: ['"Source Serif 4"', '"Source Serif Pro"', "Georgia", "serif"],
+        sans: ['"Inter Tight"', "system-ui", "sans-serif"],
+        mono: ['"JetBrains Mono"', "ui-monospace", "monospace"],
       },
     },
   },
