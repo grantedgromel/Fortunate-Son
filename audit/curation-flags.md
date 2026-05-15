@@ -146,3 +146,15 @@ The ID backfill extended to the Sub-Saharan Africa (II) entries (14 IDs added). 
 - **Suggested action:** verify the title, or replace with a confirmed Tigrayan-diaspora war song. ID left blank.
 
 Also left ID-less, not an error: **biafra-war — "Bach: Jesu, Joy of Man's Desiring"** (classical piece, no single canonical recording).
+
+## Latin America YouTube-ID pass — new findings (2026-05-15)
+
+The ID backfill extended to the Latin America (II) entries (13 IDs added). Two findings:
+
+### colombian-conflict — "Pa' Despertar" / ChocQuibTown
+- **Problem:** No ChocQuibTown track titled "Pa' Despertar" found; their catalogue surfaces "Pa' Olvidarte", "De Donde Vengo Yo", etc. Possibly a confusion with "Pa' Olvidarte".
+- **Suggested action:** verify the title or replace with a confirmed ChocQuibTown track. ID left blank.
+
+### mexican-drug-war — "El Niño Sicario" / El Komander (attribution)
+- **Problem:** "El Niño Sicario" is a Calibre 50 track (from their 2012 album "Corridos Progresivos"), not an El Komander song. Likely a misattribution.
+- **Suggested action:** recredit to Calibre 50, or replace with a verified El Komander narcocorrido. ID left blank.
