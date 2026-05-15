@@ -80,3 +80,27 @@ in that batch's own curation. IDs were left blank for these pending review.
 
 Three pure-traditional songs (Arirang, Champa Muang Lao, Rasa Sayang) were
 intentionally left without IDs — they have no single canonical recording.
+
+### Resolutions (2026-05-15)
+
+All six were fixed:
+
+- **cambodian-civil-war** — "Pachelbel's Canon in D" replaced with **"Imagine" / John Lennon**, the song that actually closes The Killing Fields (final reunion scene).
+- **angolan-civil-war** — "Angola" / Teta Lando replaced with the verified **"Irmão Ama Teu Irmão" / Teta Lando** ("Brother, Love Your Brother" — apt for a civil war).
+- **angolan-civil-war** — "Velha Chica" kept (the Bastos solo recording is real); the dubious 1990 year dropped and the note reworded.
+- **eritrean-war-of-independence** — "Aytehazenley" / Yemane Barya replaced with verified **"Lula" / Yemane Barya**.
+- **eritrean-war-of-independence** — "Semaetat" / Abraham Afewerki replaced with verified **"Tmnitey" / Abraham Afewerki**.
+- **laotian-civil-war** — "Rock Savannakhet" / Dao Bandon removed (Dao Bandon is a Thai Isan artist, not pre-1975 Lao); the entry now carries one traditional track.
+
+## Decolonization YouTube-ID pass — new curation problems (2026-05-15)
+
+The ID backfill extended to the 7 Decolonization entries (11 IDs added). Two
+more tracks could not be verified and were left without IDs for review:
+
+### first-indochina-war — "La Complainte des infidèles" / Bérurier Noir
+- **Problem:** Search surfaces this title only as a 1950s French chanson (Mouloudji, Danielle Darrieux), not a Bérurier Noir recording. The attribution is unverifiable.
+- **Suggested action:** verify whether Bérurier Noir recorded it; otherwise recredit (e.g. Mouloudji) or remove.
+
+### rhodesian-bush-war — "Mothers of the Land" / Thomas Mapfumo & The Acid Band
+- **Problem:** No song by this title found. Mapfumo & The Acid Band's verified tracks include "Hokoyo", "Matiregerera Mambo", "Pamuromo Chete"; "Mothers of the Land" looks fabricated.
+- **Suggested action:** replace with a verified Mapfumo chimurenga track, or remove.
