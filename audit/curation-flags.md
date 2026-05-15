@@ -181,3 +181,32 @@ malformed title fixed). Findings:
 - **Suggested action:** verify or replace. ID left blank.
 
 Also left ID-less, not errors: **chinese-civil-war-tail — "March of the Volunteers"** (PRC national anthem, official/martial), **bosnian-war — "Sarajevo (Welcome to Sarajevo OST)"** (generic compilation-soundtrack reference, no single canonical recording) and **"Kad ja pođoh na Bembašu"** (traditional sevdah), **nagorno-karabakh-conflict — "Sari Gelin"** (traditional).
+
+## All flags resolved (2026-05-15, batch 2)
+
+The 13 open flags above were resolved per user decision:
+
+**Recredited (song real, artist field corrected) + ID added:**
+- `rwandan-genocide` "Mama Ararira" → recredited to **Afro Celt Sound System ft. Dorothee Munyaneza** (the Hotel Rwanda recording).
+- `mexican-drug-war` "El Niño Sicario" → recredited to **Calibre 50**.
+
+**Note corrected (song + ID kept):**
+- `syrian-civil-war` "Yalla Erhal Ya Bashar" → note rewritten: long credited to Ibrahim Qashoush (murdered 2011); lead voice confirmed in 2024 as Abdel Rahman Farhood.
+
+**Replaced with a verified track + ID:**
+- `lebanese-civil-war` "Le Canon" → **"Abu Ali" / Ziad Rahbani** (1978).
+- `croatian-war` "Dalmatinac sam" → **"Stop the War in Croatia" / Tomislav Ivčić** (1991).
+- `rhodesian-bush-war` "Mothers of the Land" → **"Ngoma Yarira" / Hallelujah Chicken Run Band** (1974, the foundational chimurenga single, Thomas Mapfumo).
+- `colombian-conflict` "Pa' Despertar" → **"De Donde Vengo Yo" / ChocQuibTown** (2009).
+- `iran-iraq-war` "Zeytoun" → **"Soghati" / Hayedeh** (1976).
+- `israel-hamas-war` "Charbel" → **"Moledet" / Hanan Ben Ari** (2023).
+- `kosovo-war` "Kthehu Dashuria Ime" → **"Lavdi ushtarit tim" / Adelina Ismaili**.
+
+**Replaced, ID-less (no single canonical recording):**
+- `hungarian-revolution-1956` "Magyarország" → **"Egmont Overture" / Beethoven**, broadcast on Hungarian radio during the 1956 uprising.
+
+**Removed (no verified replacement; entry retains its other tracks):**
+- `first-indochina-war` "La Complainte des infidèles" (keeps "Le Déserteur").
+- `somali-civil-war` "Of the Birds Falls" (keeps "Gortoz a Ran" + "Soobax").
+
+All 60-entry curation flags are now closed.

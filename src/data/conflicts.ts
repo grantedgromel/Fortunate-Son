@@ -830,11 +830,6 @@ export const conflicts: Conflict[] = [
         note: "Written and released in the final months of the Indochina war as a refusal letter to the French president, banned on French radio and quickly adopted as the era's pacifist anthem.",
         youtubeId: "gjndTXyk3mw",
       },
-      {
-        title: "La Complainte des infidèles",
-        artist: "Bérurier Noir",
-        note: "A latter-day French punk standard built on Foreign Legion and colonial-war marching motifs, repeatedly used in documentary treatments of the Indochina campaign.",
-      },
     ],
   },
 
@@ -1077,9 +1072,11 @@ export const conflicts: Conflict[] = [
         youtubeId: "sFYpFglsatE",
       },
       {
-        title: "Mothers of the Land",
-        artist: "Thomas Mapfumo & The Acid Band",
-        note: "A Mapfumo standard from the late-war and immediate post-independence period that became a touchstone of how the chimurenga generation remembered the bush war.",
+        title: "Ngoma Yarira",
+        artist: "Hallelujah Chicken Run Band",
+        year: 1974,
+        note: "The 1974 single on which Thomas Mapfumo first transposed mbira music to the electric guitar — the foundational recording of the chimurenga sound that became the music of the liberation war.",
+        youtubeId: "4Lvy-_SVUdU",
       },
     ],
   },
@@ -1316,9 +1313,11 @@ export const conflicts: Conflict[] = [
         youtubeId: "vvcx7ZM580w",
       },
       {
-        title: "Le Canon",
+        title: "Abu Ali",
         artist: "Ziad Rahbani",
-        note: "Rahbani's wartime stage musicals and jazz-inflected songs supplied the cynical Beirut soundtrack of the militia years; cited in nearly every memoir of the period.",
+        year: 1978,
+        note: "Rahbani's sprawling instrumental, recorded mid-war and named for a Palestinian commander, became the cynical jazz-funk soundtrack of militia-era Beirut.",
+        youtubeId: "qxIZDpShHC0",
       },
     ],
   },
@@ -1354,9 +1353,11 @@ export const conflicts: Conflict[] = [
       "Iraq invaded Iran in September 1980, anticipating a quick victory against a revolutionary government still consolidating power, and was instead drawn into an eight-year war of attrition that featured trench warfare, missile exchanges against cities, and Iraq's repeated use of chemical weapons. The war ended in 1988 with U.N.-mediated ceasefire and essentially the pre-war borders.",
     musicTracks: [
       {
-        title: "Zeytoun",
+        title: "Soghati",
         artist: "Hayedeh",
-        note: "Recorded in exile by one of pre-revolution Iran's most popular singers, the song became a diaspora touchstone for an Iranian generation cut off from home during the war years.",
+        year: 1976,
+        note: "Recorded in Tehran before the revolution by one of Iran's most beloved singers, who left the country in 1979; her music became the diaspora's elegy for the homeland the revolution and the eight-year war cut them off from.",
+        youtubeId: "vREqfHT9RVQ",
       },
     ],
   },
@@ -1541,7 +1542,7 @@ export const conflicts: Conflict[] = [
         title: "Yalla Erhal Ya Bashar",
         artist: "Ibrahim Qashoush",
         year: 2011,
-        note: "The chant-anthem of the early Hama protests, sung by Qashoush and adopted across the country; he was found dead with his throat cut in July 2011 and the song became an emblem of the uprising.",
+        note: "The chant-anthem of the early Hama protests and an emblem of the uprising. It was long credited to Ibrahim Qashoush, found dead with his throat cut in July 2011; after the regime fell in 2024 the song's lead voice was confirmed to be the activist Abdel Rahman Farhood.",
         youtubeId: "UIBVHv7uubg",
       },
       {
@@ -1662,10 +1663,11 @@ export const conflicts: Conflict[] = [
       "On October 7, 2023, Hamas-led militants launched a cross-border attack from Gaza into southern Israel that killed roughly 1,200 people and took some 250 hostages, prompting an Israeli military campaign in Gaza that has produced extensive civilian casualties and destruction. The war has spread to multiple fronts including Lebanon, Yemen, and direct Iran–Israel exchanges, and remains the subject of ongoing international legal proceedings.",
     musicTracks: [
       {
-        title: "Charbel",
+        title: "Moledet",
         artist: "Hanan Ben Ari",
-        year: 2017,
-        note: "An older Israeli ballad about a fallen comrade that resurged on Israeli airwaves and at memorials following October 7; cited across reporting on the war's home-front soundtrack.",
+        year: 2023,
+        note: "Hanan Ben Ari wrote this 'Homeland' ballad during the war that followed October 7, 2023; it became one of the most-shared expressions of the Israeli home front's grief and resolve.",
+        youtubeId: "9wYEWx1291g",
       },
       {
         title: "Dammi Falastini",
@@ -2138,8 +2140,9 @@ export const conflicts: Conflict[] = [
       },
       {
         title: "Mama Ararira",
-        artist: "Cécile Kayirebwa",
-        note: "The Rwandan singer's elegiac standards from her 1990s recordings have been used across documentaries about the genocide and its aftermath.",
+        artist: "Afro Celt Sound System ft. Dorothee Munyaneza",
+        note: "A Kinyarwanda lament — 'Mother, do not cry' — sung by Rwandan-born Dorothee Munyaneza for the Hotel Rwanda soundtrack, the best-known screen treatment of the genocide.",
+        youtubeId: "k5ym6E4tg50",
       },
       {
         title: "Parce qu'on vient de loin",
@@ -2270,12 +2273,6 @@ export const conflicts: Conflict[] = [
         year: 2000,
         note: "Used in the closing of Ridley Scott's Black Hawk Down (2001), the Breton-language lament became inseparable from the cinematic treatment of the 1993 Battle of Mogadishu.",
         youtubeId: "d9Rc0-vida4",
-      },
-      {
-        title: "Of the Birds Falls",
-        artist: "Hans Zimmer (Black Hawk Down OST)",
-        year: 2001,
-        note: "Zimmer's score for Black Hawk Down set the late-90s grunt-cinema sound for U.N. operations in collapsed states; widely sampled in documentaries on Somalia.",
       },
       {
         title: "Soobax",
@@ -2598,9 +2595,11 @@ export const conflicts: Conflict[] = [
         youtubeId: "kMIaYXxLnUA",
       },
       {
-        title: "Pa' Despertar",
+        title: "De Donde Vengo Yo",
         artist: "ChocQuibTown",
-        note: "The Pacific-coast Afro-Colombian collective have repeatedly addressed the displacement of their region by the war in their lyrics and visual work.",
+        year: 2009,
+        note: "The Afro-Colombian trio's breakout song about Quibdó and the Pacific Chocó region — among the areas worst displaced by the armed conflict.",
+        youtubeId: "yMS4J6Gp6e4",
       },
     ],
   },
@@ -2807,8 +2806,9 @@ export const conflicts: Conflict[] = [
       },
       {
         title: "El Niño Sicario",
-        artist: "El Komander",
-        note: "A representative narcocorrido from the Movimiento Alterado wave that emerged with the war and turned the conflict's iconography into a global Spanish-language pop subculture.",
+        artist: "Calibre 50",
+        note: "A representative narcocorrido of the cartel-war years, narrating a child drawn into the role of a hitman — the genre that turned the conflict's iconography into a Spanish-language pop subculture.",
+        youtubeId: "wlTbG2KT7Qs",
       },
       {
         title: "Cartel Land (theme)",
@@ -2969,9 +2969,9 @@ export const conflicts: Conflict[] = [
       "A nationwide uprising against the Hungarian People's Republic and Soviet domination, beginning with student-led protests in Budapest in October 1956 and crushed by a major Soviet military intervention in early November. Imre Nagy was secretly tried and executed in 1958. The revolution shattered the Western communist movement's illusions about Soviet rule and became a defining episode of Cold War memory.",
     musicTracks: [
       {
-        title: "Magyarország",
-        artist: "Cseh Tamás",
-        note: "Cseh Tamás's late-Kádár-era ballads became the standard musical articulation of the long memory of 1956 in Hungarian popular culture.",
+        title: "Egmont Overture",
+        artist: "Ludwig van Beethoven",
+        note: "Beethoven's overture was played repeatedly on Hungarian radio between announcements during the 1956 uprising, becoming the sonic emblem of the revolt.",
       },
     ],
   },
@@ -3136,9 +3136,11 @@ export const conflicts: Conflict[] = [
         youtubeId: "m3YZ-oeYLBk",
       },
       {
-        title: "Dalmatinac sam",
+        title: "Stop the War in Croatia",
         artist: "Tomislav Ivčić",
-        note: "Ivčić's wartime patriotic songs were nightly radio fixtures during the war; his 1991 'Stop the War in Croatia' targeted the international audience as Vukovar fell.",
+        year: 1991,
+        note: "Ivčić's English-language plea, broadcast by the BBC, CNN and dozens of other networks in 1991, carried the war to an international audience and briefly entered the Billboard charts.",
+        youtubeId: "Km5HYWkcrYA",
       },
     ],
   },
@@ -3239,9 +3241,10 @@ export const conflicts: Conflict[] = [
       "An armed conflict between Yugoslav security forces and the Kosovo Liberation Army that escalated through 1998 and triggered a 78-day NATO air campaign in 1999. Yugoslav forces withdrew under the Kumanovo Agreement and Kosovo passed to U.N. administration. Kosovo declared independence in 2008; recognition is partial.",
     musicTracks: [
       {
-        title: "Kthehu Dashuria Ime",
+        title: "Lavdi ushtarit tim",
         artist: "Adelina Ismaili",
-        note: "Ismaili was among the Kosovo-Albanian pop singers who performed for displaced communities during and after the war; her recordings of the period became diaspora touchstones.",
+        note: "Ismaili's tribute to a fallen soldier — 'Honour to my soldier' — was dedicated to the dead of the Kosovo War and became a diaspora touchstone.",
+        youtubeId: "6ObmoE4qauY",
       },
     ],
   },
