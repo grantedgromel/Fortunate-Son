@@ -68,7 +68,7 @@ export default function Timeline({
           Timeline
         </div>
         <div className="relative flex-1">
-          <div className="flex h-6 items-end justify-between px-2 text-[10px] tabular-nums text-parchment/50">
+          <div className="flex h-6 items-end justify-between px-2 text-[10px] tabular-nums text-parchment/75">
             {decadeTicks.map((y) => (
               <span
                 key={y}
