@@ -104,3 +104,27 @@ more tracks could not be verified and were left without IDs for review:
 ### rhodesian-bush-war — "Mothers of the Land" / Thomas Mapfumo & The Acid Band
 - **Problem:** No song by this title found. Mapfumo & The Acid Band's verified tracks include "Hokoyo", "Matiregerera Mambo", "Pamuromo Chete"; "Mothers of the Land" looks fabricated.
 - **Suggested action:** replace with a verified Mapfumo chimurenga track, or remove.
+
+## Middle East YouTube-ID pass — new findings (2026-05-15)
+
+The ID backfill extended to the 12 Middle East entries (17 IDs added). Findings:
+
+### lebanese-civil-war — "Le Canon" / Ziad Rahbani
+- **Problem:** No Ziad Rahbani track titled "Le Canon" found. His verified civil-war-era instrumental work centres on the album/piece "Abu Ali".
+- **Suggested action:** replace with "Abu Ali" (or another verified Ziad Rahbani piece), or remove. ID left blank.
+
+### iran-iraq-war — "Zeytoun" / Hayedeh
+- **Problem:** No Hayedeh song titled "Zeytoun" found; her verified repertoire includes "Soghati", "Masti", "Sofreh Eshgh". This is the entry's only track, so removal would leave it empty.
+- **Suggested action:** verify, replace with a confirmed Hayedeh song, or remove. ID left blank.
+
+### israel-hamas-war — "Charbel" / Hanan Ben Ari
+- **Problem:** No Hanan Ben Ari song titled "Charbel" found in search; attribution unverifiable.
+- **Suggested action:** verify or replace with a confirmed Hanan Ben Ari track. ID left blank.
+
+### syrian-civil-war — "Yalla Erhal Ya Bashar" / Ibrahim Qashoush (attribution)
+- **Problem:** Not a fabricated track — the song is real and an ID was added. But after the fall of the Assad regime in 2024 it was confirmed that the singer was **Abdel Rahman Farhood**, not Ibrahim Qashoush; Qashoush was a Hama protest figure murdered in 2011 and long mistakenly credited. If the entry's note repeats the Qashoush-as-singer account it should be corrected.
+- **Suggested action:** review and update the note's attribution.
+
+### Tracks with no stable YouTube ID (not curation errors)
+- **iraq-war — "Hadji Girl" / Joshua Belile:** the original 2006 video was removed by YouTube and re-uploads are taken down under its terms of use; left without an ID (the in-app YouTube-search fallback still applies).
+- **libyan-civil-war-2011 — "Al-Soo'al" / Ibn Thabit:** the track is verified real (released on YouTube 27 Jan 2011) but a specific canonical video ID could not be confirmed via search; left blank.
