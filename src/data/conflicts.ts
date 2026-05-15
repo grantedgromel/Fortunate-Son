@@ -2282,7 +2282,19 @@ export const conflicts: Conflict[] = [
       "Estimates of total deaths range from roughly 200,000 to over 400,000, with millions displaced; the International Criminal Court issued an arrest warrant for President Omar al-Bashir on charges including genocide.",
     summary:
       "An armed rebellion by Darfuri groups against Khartoum's neglect of the western region, met by a counter-insurgency strategy that armed Arab militias known as the Janjaweed and produced years of mass killing and displacement of non-Arab Darfuris. The conflict's central role in the rise of the Rapid Support Forces fed directly into the 2023 Sudanese civil war between the army and the RSF.",
-    musicTracks: [],
+    musicTracks: [
+      {
+        title: "Living Darfur",
+        artist: "Mattafix",
+        year: 2007,
+        note: "Written explicitly about the genocide and promoted alongside footage from the region, the single became the signature anthem of the Save Darfur and Crisis in Darfur awareness campaigns.",
+      },
+      {
+        title: "Mursal",
+        artist: "Mohammed Wardi",
+        note: "Wardi, the most revered voice of twentieth-century Sudanese music and a repeated political exile, is the diaspora's enduring reference point for a country shaped by successive wars, recurring across Sudanese memorial and documentary culture.",
+      },
+    ],
   },
 
   {
@@ -2314,7 +2326,20 @@ export const conflicts: Conflict[] = [
       "An academic study published in 2018 estimated nearly 400,000 excess deaths over the war's first five years; some 4 million displaced.",
     summary:
       "Two years after independence from Sudan, a political dispute between President Salva Kiir and Vice President Riek Machar escalated into a civil war along largely Dinka–Nuer ethnic lines, marked by mass civilian killings and famine. A 2018 revitalised peace agreement and 2020 unity government formally ended the war, though localised violence continues.",
-    musicTracks: [],
+    musicTracks: [
+      {
+        title: "We Want Peace",
+        artist: "Emmanuel Jal",
+        year: 2010,
+        note: "The all-star campaign single by Jal, a South Sudanese former child soldier, was written around the independence referendum and carried forward as the diaspora's recurring plea once the new state collapsed into civil war.",
+      },
+      {
+        title: "Ti-Chuong",
+        artist: "Emmanuel Jal & Nyaruach",
+        year: 2018,
+        note: "The South Sudanese siblings, separated as child refugees, reunited for the album Naath, whose songs confront the ethnic violence and displacement of the 2013–2020 war.",
+      },
+    ],
   },
 
   {

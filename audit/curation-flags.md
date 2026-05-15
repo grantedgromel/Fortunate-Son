@@ -20,22 +20,26 @@ Each flag is a SUGGESTION for human review, not a verified error. The audit cann
 - **Where:** `musicTracks: []`
 - **Concern:** Sparse-canon conflict with zero curation. The original prompt's guidance was to keep sparse canons sparse but use 2–3 regional/diaspora artists rather than padding with Western rock; an empty array is a defensible reading of "leave sparse canons sparse" but inconsistent with the rest of the dataset's sparse-canon entries (Tigray, Nagorno-Karabakh, Sahel) which do include 2–3 regional tracks.
 - **Suggested action:** add 2–3 tracks from Hausa / Northern Nigerian artists or diaspora work on Boko Haram; consider documentary soundtracks focused on the insurgency.
+- **RESOLUTION (2026-05-14):** Intentionally left empty. No confident song-to-insurgency linkage was available without web verification; per the "do not invent tracks" rule the entry stays sparse. Revisit in a web-verified pass.
 
-## south-sudanese-civil-war
+## south-sudan-civil-war
 - **Flag:** C
 - **Where:** `musicTracks: []`
 - **Concern:** Same as above — sparse canon left fully empty rather than seeded with 2–3 regional artists.
 - **Suggested action:** Emmanuel Jal (South Sudanese rapper / former child soldier) is the obvious diaspora touchstone; consider 2–3 of his tracks plus any local liberation-era music.
+- **RESOLUTION (2026-05-14):** Resolved — added Emmanuel Jal "We Want Peace" (2010) and Emmanuel Jal & Nyaruach "Ti-Chuong" (2018). YouTube IDs left blank pending web verification.
 
 ## war-in-darfur
 - **Flag:** C
 - **Where:** `musicTracks: []`
 - **Concern:** Same as above — sparse canon left fully empty.
 - **Suggested action:** Mattafix's "Living Darfur" (2007) is the single best-known anglophone track explicitly about the genocide; pair with 1–2 Sudanese diaspora artists.
+- **RESOLUTION (2026-05-14):** Resolved — added Mattafix "Living Darfur" (2007) and Mohammed Wardi "Mursal". YouTube IDs left blank pending web verification.
 
 ---
 
 **FLAGGED: 3 of 60 entries; CLEAN: 57 of 60.**
+**RESOLVED: 2 of 3 populated (war-in-darfur, south-sudan-civil-war); 1 of 3 (boko-haram-insurgency) intentionally left empty.**
 
 ## Companion: T1 structural audit (informational)
 
