@@ -128,3 +128,21 @@ The ID backfill extended to the 12 Middle East entries (17 IDs added). Findings:
 ### Tracks with no stable YouTube ID (not curation errors)
 - **iraq-war — "Hadji Girl" / Joshua Belile:** the original 2006 video was removed by YouTube and re-uploads are taken down under its terms of use; left without an ID (the in-app YouTube-search fallback still applies).
 - **libyan-civil-war-2011 — "Al-Soo'al" / Ibn Thabit:** the track is verified real (released on YouTube 27 Jan 2011) but a specific canonical video ID could not be confirmed via search; left blank.
+
+## Sub-Saharan Africa YouTube-ID pass — new findings (2026-05-15)
+
+The ID backfill extended to the Sub-Saharan Africa (II) entries (14 IDs added). Three findings:
+
+### rwandan-genocide — "Mama Ararira" / Cécile Kayirebwa (attribution)
+- **Problem:** The canonical "Mama Ararira" — the one on the Hotel Rwanda soundtrack — is performed by Afro Celt Sound System featuring Dorothee Munyaneza, not Cécile Kayirebwa. The dataset's attribution is likely wrong.
+- **Suggested action:** recredit to "Afro Celt Sound System ft. Dorothee Munyaneza", or confirm a Kayirebwa recording. ID left blank.
+
+### somali-civil-war — "Of the Birds Falls" / Hans Zimmer (Black Hawk Down OST)
+- **Problem:** No track by this title found among the Black Hawk Down soundtrack listings (which include "Hunger", "Of the Earth", "Gortoz a Ran", "Leave No Man Behind"). The title looks garbled or fabricated.
+- **Suggested action:** replace with a verified Black Hawk Down cue, or remove. ID left blank.
+
+### tigray-war — "Tigray Hawey" / Solomon Bayre
+- **Problem:** Solomon Bayre is a plausible Tigrigna artist, but no track titled "Tigray Hawey" could be verified via search. It is the entry's only track.
+- **Suggested action:** verify the title, or replace with a confirmed Tigrayan-diaspora war song. ID left blank.
+
+Also left ID-less, not an error: **biafra-war — "Bach: Jesu, Joy of Man's Desiring"** (classical piece, no single canonical recording).
