@@ -158,3 +158,26 @@ The ID backfill extended to the Latin America (II) entries (13 IDs added). Two f
 ### mexican-drug-war — "El Niño Sicario" / El Komander (attribution)
 - **Problem:** "El Niño Sicario" is a Calibre 50 track (from their 2012 album "Corridos Progresivos"), not an El Komander song. Likely a misattribution.
 - **Suggested action:** recredit to Calibre 50, or replace with a verified El Komander narcocorrido. ID left blank.
+
+## Europe / post-Soviet YouTube-ID pass — new findings (2026-05-15)
+
+The ID backfill extended to the Europe / post-Soviet entries (20 IDs added; one
+malformed title fixed). Findings:
+
+### second-chechen-war — "Любэ — Комбат (already documented…)" (FIXED)
+- **Problem:** the track's `title` field literally contained the editorial note "(already documented in the Soviet–Afghan entry)".
+- **Resolution:** title corrected to "Kombat" and the verified Lyube ID added.
+
+### hungarian-revolution-1956 — "Magyarország" / Cseh Tamás
+- **Problem:** no Cseh Tamás song titled "Magyarország" could be verified via search. It is the entry's only track.
+- **Suggested action:** verify, or replace with a confirmed Cseh Tamás song. ID left blank.
+
+### croatian-war — "Dalmatinac sam" / Tomislav Ivčić
+- **Problem:** no Tomislav Ivčić track titled "Dalmatinac sam" found; his catalogue surfaces "Dalmatinke", "Tamo gdje sam rođen", etc. (His verified war-era song is "Stop the War in Croatia".)
+- **Suggested action:** verify or replace. ID left blank.
+
+### kosovo-war — "Kthehu Dashuria Ime" / Adelina Ismaili
+- **Problem:** Adelina Ismaili is a real Kosovar-Albanian singer, but no track titled "Kthehu Dashuria Ime" could be verified. It is the entry's only track.
+- **Suggested action:** verify or replace. ID left blank.
+
+Also left ID-less, not errors: **chinese-civil-war-tail — "March of the Volunteers"** (PRC national anthem, official/martial), **bosnian-war — "Sarajevo (Welcome to Sarajevo OST)"** (generic compilation-soundtrack reference, no single canonical recording) and **"Kad ja pođoh na Bembašu"** (traditional sevdah), **nagorno-karabakh-conflict — "Sari Gelin"** (traditional).
