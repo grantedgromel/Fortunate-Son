@@ -22,7 +22,10 @@ import { parseCasualtyMagnitude } from "../lib/casualties";
 import VinylDisc from "./VinylDisc";
 
 const GEO_URL = "/countries-110m.json";
-const VIEW_W = 980;
+// Square viewBox — the globe nearly fills it, so it stays large when the SVG
+// is constrained by width on narrow screens. Desktop is height-bound, so the
+// globe size is unchanged there.
+const VIEW_W = 560;
 const VIEW_H = 560;
 const CX = VIEW_W / 2;
 const CY = VIEW_H / 2;

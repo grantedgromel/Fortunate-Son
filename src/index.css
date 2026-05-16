@@ -64,9 +64,10 @@ button {
 
 /* ─── APP SHELL ─── */
 .app {
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto minmax(0, 1fr) auto;
   padding: 22px 28px 0;
   max-width: 1760px;
   margin: 0 auto;
@@ -135,11 +136,12 @@ button {
 /* ─── STAGE / MAP ─── */
 .stage {
   position: relative;
-  min-height: 600px;
+  min-height: 0;
   padding: 8px 0 0;
 }
 .map-stage {
   position: relative;
+  height: 100%;
   background: var(--bg);
   overflow: hidden;
   border-bottom: 0.5px solid color-mix(in oklab, var(--ink) 25%, transparent);
@@ -576,6 +578,62 @@ button {
   text-transform: uppercase;
   opacity: 0.6;
   margin: 18px 0 6px;
+}
+
+/* ─── MOBILE ─── */
+@media (max-width: 760px) {
+  .app {
+    height: auto;
+    min-height: 100dvh;
+    grid-template-rows: auto auto auto;
+    padding: 12px 12px 0;
+  }
+
+  /* masthead stacks into two rows */
+  .masthead {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .mast-left { gap: 12px; }
+  .mast-logo { width: 54px; height: 70px; }
+  .title { font-size: clamp(30px, 8.5vw, 46px); }
+  .mast-right { justify-content: flex-start; }
+
+  /* map — square SVG sizes itself; no fixed map height */
+  .stage { min-height: 0; padding-top: 6px; }
+  .map-stage { display: grid; place-items: center; }
+  .map-wrap { min-height: 0; }
+  .zoom-ctl button { width: 38px; height: 38px; font-size: 17px; }
+
+  /* timeline — scrubber drops to its own full-width row */
+  .timeline { flex-wrap: wrap; gap: 10px 14px; }
+  .tl-play { width: 42px; height: 42px; }
+  .tl-readout { flex: 0 0 auto; text-align: left; }
+  .tl-all { margin-left: auto; }
+  .tl-scrub { flex: 1 1 100%; order: 3; padding: 14px 6px 22px; }
+
+  /* conflict modal */
+  .conflict-modal-scrim { padding: 14px; }
+  .conflict-modal {
+    width: 100%;
+    max-height: 92vh;
+    box-shadow: 7px 7px 0 var(--ink);
+  }
+  .cm-body { padding: 22px 20px 28px; }
+  .cm-close { top: 10px; right: 10px; }
+  .cm-title { font-size: 26px; padding-right: 30px; }
+  .cm-meta > div { grid-template-columns: 1fr; gap: 3px; }
+  .track-row { padding: 10px 2px; }
+
+  /* search + about */
+  .search-scrim { padding-top: 8vh; }
+  .about-scrim { padding: 14px; }
+  .about-panel {
+    padding: 22px 20px 26px;
+    max-height: 90vh;
+    box-shadow: 7px 7px 0 var(--ink);
+  }
+  .about-panel h2 { font-size: 24px; }
 }
 
 /* ─── PRINT ─── */
