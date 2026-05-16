@@ -1,8 +1,16 @@
-import { lazy, Suspense, useEffect, useMemo, useState } from "react";
+import {
+  lazy,
+  Suspense,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import Header from "./components/Header";
 import WorldMap from "./components/WorldMap";
 import PeriodStrip from "./components/PeriodStrip";
 import SearchOverlay from "./components/SearchOverlay";
+import ConflictModal from "./components/ConflictModal";
 import { conflicts } from "./data/conflicts";
 import { inYearRange } from "./lib/filter";
 import { FULL_RANGE } from "./lib/periods";
@@ -24,7 +32,7 @@ export default function App() {
   const [yearWindow, setYearWindow] = useState<[number, number]>(FULL_RANGE);
 
   // Conflicts active within the selected period — plus the selected one,
-  // so its marker (and the anchored popover) always has somewhere to live.
+  // so its marker stays on the globe while the modal is open.
   const visible = useMemo(() => {
     const inWindow = conflicts.filter((c) =>
       inYearRange(c, yearWindow[0], yearWindow[1]),
@@ -35,6 +43,12 @@ export default function App() {
     }
     return inWindow;
   }, [yearWindow, selectedId]);
+
+  const selected = useMemo(
+    () => conflicts.find((c) => c.id === selectedId) ?? null,
+    [selectedId],
+  );
+  const closeConflict = useCallback(() => setSelectedId(null), []);
 
   // Selection ⇄ URL hash.
   useEffect(() => {
@@ -114,6 +128,10 @@ export default function App() {
       <footer className="period-foot">
         <PeriodStrip yearWindow={yearWindow} onChange={setYearWindow} />
       </footer>
+
+      {selected ? (
+        <ConflictModal conflict={selected} onClose={closeConflict} />
+      ) : null}
 
       {searchOpen ? (
         <SearchOverlay

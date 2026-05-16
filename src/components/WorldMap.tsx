@@ -12,7 +12,6 @@ import { isoOf } from "../lib/geo";
 import { vinylLabelColor } from "../lib/vinyl";
 import { parseCasualtyMagnitude } from "../lib/casualties";
 import VinylDisc from "./VinylDisc";
-import ConflictPanel from "./ConflictPanel";
 
 const GEO_URL = "/countries-110m.json";
 const VIEW_W = 980;
@@ -111,8 +110,6 @@ export default function WorldMap({
     const el = wrapRef.current;
     if (!el) return;
     const onWheel = (e: WheelEvent) => {
-      const t = e.target as Element | null;
-      if (t && t.closest(".conflict-panel")) return; // let the panel scroll
       e.preventDefault();
       const factor = e.deltaY < 0 ? 1.12 : 1 / 1.12;
       setScale((s) => Math.max(MIN_SCALE, Math.min(MAX_SCALE, s * factor)));
@@ -213,7 +210,6 @@ export default function WorldMap({
     [placed, selectedId],
   );
 
-  const selected = conflicts.find((c) => c.id === selectedId) ?? null;
   const hovered = conflicts.find((c) => c.id === hoveredId) ?? null;
 
   return (
@@ -355,9 +351,6 @@ export default function WorldMap({
         hovered={hovered}
         selectedId={selectedId}
       />
-      {selected ? (
-        <ConflictPanel conflict={selected} onClose={() => onSelect(null)} />
-      ) : null}
     </div>
   );
 }

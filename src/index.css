@@ -167,7 +167,7 @@ button {
 
 .zoom-ctl {
   position: absolute;
-  left: 12px;
+  right: 12px;
   top: 12px;
   display: flex;
   flex-direction: column;
@@ -217,85 +217,90 @@ button {
   border-top: 5px solid var(--ink);
 }
 
-/* ─── CONFLICT PANEL (right-side, slides in) ─── */
-.conflict-panel {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 440px;
-  max-width: 92vw;
-  background: var(--bg);
-  border-left: 2px solid var(--ink);
-  box-shadow: -10px 0 28px rgba(26, 26, 26, 0.16);
-  z-index: 10;
-  animation: panel-in 0.32s cubic-bezier(0.22, 1, 0.36, 1);
-}
-@keyframes panel-in {
-  from { transform: translateX(100%); }
-  to   { transform: translateX(0); }
-}
-.cp-close {
-  position: absolute;
-  top: 12px;
-  right: 14px;
-  width: 30px;
-  height: 30px;
+/* ─── CONFLICT MODAL (centered) ─── */
+.conflict-modal-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: color-mix(in oklab, var(--ink) 46%, transparent);
+  backdrop-filter: blur(3px);
   display: grid;
   place-items: center;
-  font-size: 22px;
+  padding: 32px;
+  animation: scrim-in 0.18s ease-out;
+}
+@keyframes scrim-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.conflict-modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(720px, 94vw);
+  max-height: 88vh;
+  background: var(--bg);
+  border: 1px solid var(--ink);
+  box-shadow: 12px 12px 0 var(--ink);
+  animation: modal-in 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes modal-in {
+  from { transform: translateY(14px) scale(0.98); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+.cm-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  font-size: 23px;
   line-height: 1;
   border: 1px solid transparent;
   z-index: 3;
 }
-.cp-close:hover {
+.cm-close:hover {
   border-color: var(--ink);
   background: var(--paper);
 }
-.cp-scroll {
-  height: 100%;
+.cm-body {
   overflow-y: auto;
-  padding: 32px 32px 44px;
+  padding: 36px 44px 40px;
 }
-.cp-scroll::-webkit-scrollbar { width: 9px; }
-.cp-scroll::-webkit-scrollbar-thumb {
+.cm-body::-webkit-scrollbar { width: 9px; }
+.cm-body::-webkit-scrollbar-thumb {
   background: color-mix(in oklab, var(--ink) 28%, transparent);
 }
-.cp-vinyl {
-  width: 132px;
-  height: 132px;
-  margin: 4px auto 24px;
-}
-.cp-vinyl .big-vinyl {
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.3), inset 0 0 44px rgba(0, 0, 0, 0.4);
-}
-.cp-eyebrow { letter-spacing: 0.16em; margin-bottom: 6px; }
-.cp-title {
-  font-size: 31px;
+.cm-eyebrow { letter-spacing: 0.16em; margin-bottom: 6px; }
+.cm-title {
+  font-size: 38px;
   font-weight: 700;
-  line-height: 1.04;
-  letter-spacing: -0.018em;
+  line-height: 1.03;
+  letter-spacing: -0.02em;
   margin: 0;
+  padding-right: 36px;
 }
-.cp-aka { margin-top: 8px; line-height: 1.4; }
-.cp-meta {
-  margin: 22px 0;
+.cm-aka { margin-top: 9px; line-height: 1.4; }
+.cm-meta {
+  margin: 24px 0;
   border-top: 1px solid var(--ink);
   border-bottom: 1px solid var(--ink);
 }
-.cp-meta > div {
+.cm-meta > div {
   display: grid;
-  grid-template-columns: 116px 1fr;
-  gap: 14px;
-  padding: 11px 2px;
+  grid-template-columns: 132px 1fr;
+  gap: 16px;
+  padding: 12px 2px;
 }
-.cp-meta > div + div {
+.cm-meta > div + div {
   border-top: 0.5px solid color-mix(in oklab, var(--ink) 25%, transparent);
 }
-.cp-meta dt { padding-top: 2px; }
-.cp-meta dd { margin: 0; font-size: 14px; line-height: 1.45; }
-.cp-summary { font-size: 14.5px; line-height: 1.58; margin: 0 0 24px; }
-.cp-tracks-h {
+.cm-meta dt { padding-top: 2px; }
+.cm-meta dd { margin: 0; font-size: 14.5px; line-height: 1.45; }
+.cm-summary { font-size: 15px; line-height: 1.6; margin: 0 0 26px; }
+.cm-tracks-h {
   letter-spacing: 0.2em;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--ink);
@@ -328,51 +333,7 @@ button {
 
 @media (prefers-reduced-motion: reduce) {
   .shockwave { animation: none; opacity: 0; }
-  .vinyl-spin,
-  .big-vinyl.spinning { animation: none; }
-}
-
-/* ─── CSS BIG VINYL (popover mini-disc) ─── */
-.big-vinyl {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 55%),
-    repeating-radial-gradient(circle at 50% 50%, #0c0c0c 0px, #0c0c0c 1px, #181818 1px, #181818 2px),
-    #0a0a0a;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), inset 0 0 60px rgba(0, 0, 0, 0.4);
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-}
-.big-vinyl.spinning { animation: bvspin 5.5s linear infinite; }
-@keyframes bvspin { to { transform: rotate(360deg); } }
-.bv-label {
-  position: relative;
-  width: 38%;
-  height: 38%;
-  border-radius: 50%;
-  background: var(--label, #b8332f);
-  display: grid;
-  place-items: center;
-  box-shadow:
-    inset 0 0 0 1px rgba(0, 0, 0, 0.25),
-    inset 0 0 0 4px color-mix(in oklab, var(--label) 70%, #000),
-    inset 0 0 0 5px rgba(255, 255, 255, 0.08);
-  overflow: hidden;
-}
-.bv-spindle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 6px;
-  height: 6px;
-  margin: -3px;
-  border-radius: 50%;
-  background: #0a0a0a;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+  .vinyl-spin { animation: none; }
 }
 
 /* ─── TRACK ROWS ─── */
@@ -556,25 +517,23 @@ button {
   body { background: #fff; color: #000; }
   .no-print,
   .masthead,
-  .period-foot,
-  .zoom-ctl,
-  .vinyl-tip,
-  .map-svg { display: none !important; }
   .map-stage,
-  .map-wrap {
-    min-height: 0 !important;
-    overflow: visible !important;
-    border: none !important;
-  }
-  .conflict-panel {
+  .period-foot { display: none !important; }
+  .conflict-modal-scrim {
     position: static !important;
+    display: block !important;
+    padding: 0 !important;
+    background: none !important;
+    backdrop-filter: none !important;
+  }
+  .conflict-modal {
     width: 100% !important;
-    max-width: 100% !important;
+    max-height: none !important;
     box-shadow: none !important;
     border: none !important;
     animation: none !important;
   }
-  .cp-scroll { overflow: visible !important; height: auto !important; }
-  .cp-close { display: none !important; }
+  .cm-body { overflow: visible !important; }
+  .cm-close { display: none !important; }
   .track-embed { display: none !important; }
 }
