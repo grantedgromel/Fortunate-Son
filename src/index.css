@@ -399,31 +399,97 @@ button {
   height: 1px;
   background: var(--ink);
 }
-.period-row { display: flex; gap: 6px; align-items: stretch; flex-wrap: wrap; }
-.period-chip {
-  flex: 1 1 0;
-  min-width: 96px;
+.timeline {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 10px 12px;
-  border: 0.5px solid color-mix(in oklab, var(--ink) 40%, transparent);
-  background: transparent;
-  gap: 2px;
-  text-align: left;
+  align-items: center;
+  gap: 20px;
+}
+.tl-play {
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid var(--ink);
+  background: var(--bg);
+  font-size: 13px;
   transition: background 0.12s, color 0.12s;
 }
-.period-chip:hover { background: var(--paper); }
-.period-chip.active {
-  background: var(--ink);
-  color: var(--bg);
-  border-color: var(--ink);
+.tl-play:hover { background: var(--ink); color: var(--bg); }
+.tl-readout { flex: 0 0 78px; text-align: right; }
+.tl-year { font-size: 28px; font-weight: 700; line-height: 1; letter-spacing: -0.01em; }
+.tl-year.is-all { font-size: 21px; letter-spacing: 0.08em; }
+.tl-caption { margin-top: 4px; }
+.tl-scrub {
+  flex: 1 1 auto;
+  position: relative;
+  padding: 12px 10px 24px;
+  cursor: pointer;
+  outline: none;
+  touch-action: none;
 }
-.period-chip.active .dim { opacity: 0.7; }
-.period-chip.all { flex: 0 0 88px; min-width: 88px; }
-.period-label { font-size: 16px; font-weight: 600; line-height: 1; }
-.period-sub { letter-spacing: 0.06em; }
+.tl-scrub.dimmed { opacity: 0.5; }
+.tl-scrub:focus-visible .tl-track {
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 3.5px var(--ink);
+}
+.tl-track {
+  position: relative;
+  height: 4px;
+  background: color-mix(in oklab, var(--ink) 20%, transparent);
+}
+.tl-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--ink);
+}
+.tl-handle {
+  position: absolute;
+  top: 50%;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: #b8332f;
+  border: 2px solid var(--ink);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 2;
+}
+.tl-tick {
+  position: absolute;
+  top: -3px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.tl-tick-mark {
+  width: 1px;
+  height: 10px;
+  background: color-mix(in oklab, var(--ink) 55%, transparent);
+}
+.tl-tick-label {
+  letter-spacing: 0.04em;
+  color: color-mix(in oklab, var(--ink) 62%, transparent);
+  transition: color 0.12s;
+}
+.tl-tick:hover .tl-tick-label { color: #b8332f; }
+.tl-all {
+  flex: 0 0 auto;
+  padding: 9px 16px;
+  border: 1px solid var(--ink);
+  background: var(--bg);
+  font-weight: 600;
+  transition: background 0.12s, color 0.12s;
+}
+.tl-all:hover { background: var(--paper); }
+.tl-all.active { background: var(--ink); color: var(--bg); }
 
 /* ─── SEARCH OVERLAY ─── */
 .search-scrim {

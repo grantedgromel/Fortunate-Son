@@ -12,12 +12,8 @@ export const REGION_LABELS: Record<Region, string> = {
   Oceania: "Oceania",
 };
 
-/** Whether a conflict's active years overlap the [minYear, maxYear] window. */
-export function inYearRange(
-  c: Conflict,
-  minYear: number,
-  maxYear: number,
-): boolean {
+/** Whether a conflict is active during a given calendar year. */
+export function isActiveInYear(c: Conflict, year: number): boolean {
   const end = c.endYear ?? new Date().getFullYear();
-  return c.startYear <= maxYear && end >= minYear;
+  return c.startYear <= year && end >= year;
 }

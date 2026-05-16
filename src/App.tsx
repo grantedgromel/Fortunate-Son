@@ -8,14 +8,17 @@ import {
 } from "react";
 import Header from "./components/Header";
 import WorldMap from "./components/WorldMap";
-import PeriodStrip from "./components/PeriodStrip";
+import Timeline from "./components/Timeline";
 import SearchOverlay from "./components/SearchOverlay";
 import ConflictModal from "./components/ConflictModal";
 import { conflicts } from "./data/conflicts";
-import { inYearRange } from "./lib/filter";
-import { FULL_RANGE } from "./lib/periods";
+import { isActiveInYear } from "./lib/filter";
+import { AXIS_MIN, AXIS_PRESENT } from "./lib/periods";
 
 const AboutModal = lazy(() => import("./components/AboutModal"));
+
+// Years per second when the timeline is playing.
+const PLAYBACK_RATE = 3;
 
 function readHashId(): string | null {
   if (typeof window === "undefined") return null;
@@ -29,26 +32,45 @@ export default function App() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
   const [aboutEverOpened, setAboutEverOpened] = useState(false);
-  const [yearWindow, setYearWindow] = useState<[number, number]>(FULL_RANGE);
+  const [currentYear, setCurrentYear] = useState(AXIS_MIN);
+  const [playing, setPlaying] = useState(false);
+  const [showAll, setShowAll] = useState(true);
 
-  // Conflicts active within the selected period — plus the selected one,
-  // so its marker stays on the globe while the modal is open.
-  const visible = useMemo(() => {
-    const inWindow = conflicts.filter((c) =>
-      inYearRange(c, yearWindow[0], yearWindow[1]),
-    );
-    if (selectedId && !inWindow.some((c) => c.id === selectedId)) {
-      const sel = conflicts.find((c) => c.id === selectedId);
-      if (sel) return [...inWindow, sel];
-    }
-    return inWindow;
-  }, [yearWindow, selectedId]);
+  // null = show every conflict; otherwise only those active that year.
+  const activeYear = showAll ? null : Math.round(currentYear);
 
   const selected = useMemo(
     () => conflicts.find((c) => c.id === selectedId) ?? null,
     [selectedId],
   );
   const closeConflict = useCallback(() => setSelectedId(null), []);
+
+  // The set arrow keys step through — the conflicts currently on the map.
+  const navList = useMemo(
+    () =>
+      activeYear == null
+        ? conflicts
+        : conflicts.filter((c) => isActiveInYear(c, activeYear)),
+    [activeYear],
+  );
+
+  // Timeline playback — sweep the year forward, looping at the present.
+  useEffect(() => {
+    if (!playing) return;
+    let raf = 0;
+    let last = performance.now();
+    const tick = (now: number) => {
+      const dt = (now - last) / 1000;
+      last = now;
+      setCurrentYear((y) => {
+        const next = y + dt * PLAYBACK_RATE;
+        return next >= AXIS_PRESENT ? AXIS_MIN : next;
+      });
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [playing]);
 
   // Selection ⇄ URL hash.
   useEffect(() => {
@@ -89,11 +111,10 @@ export default function App() {
       ) {
         return;
       }
-      const list = visible;
-      const idx = list.findIndex((c) => c.id === selectedId);
+      const idx = navList.findIndex((c) => c.id === selectedId);
       if (idx === -1) return;
       const dir = e.key === "ArrowRight" || e.key === "ArrowDown" ? 1 : -1;
-      const next = list[(idx + dir + list.length) % list.length];
+      const next = navList[(idx + dir + navList.length) % navList.length];
       if (next) {
         e.preventDefault();
         setSelectedId(next.id);
@@ -101,7 +122,21 @@ export default function App() {
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
-  }, [selectedId, searchOpen, aboutOpen, visible]);
+  }, [selectedId, searchOpen, aboutOpen, navList]);
+
+  const scrub = useCallback((year: number) => {
+    setShowAll(false);
+    setPlaying(false);
+    setCurrentYear(year);
+  }, []);
+  const togglePlay = useCallback(() => {
+    setShowAll(false);
+    setPlaying((p) => !p);
+  }, []);
+  const showAllYears = useCallback(() => {
+    setShowAll(true);
+    setPlaying(false);
+  }, []);
 
   return (
     <div className="app">
@@ -116,7 +151,8 @@ export default function App() {
       <main className="stage">
         <div className="map-stage">
           <WorldMap
-            conflicts={visible}
+            conflicts={conflicts}
+            activeYear={activeYear}
             selectedId={selectedId}
             hoveredId={hoveredId}
             onSelect={setSelectedId}
@@ -126,7 +162,14 @@ export default function App() {
       </main>
 
       <footer className="period-foot">
-        <PeriodStrip yearWindow={yearWindow} onChange={setYearWindow} />
+        <Timeline
+          currentYear={currentYear}
+          playing={playing}
+          showAll={showAll}
+          onScrub={scrub}
+          onTogglePlay={togglePlay}
+          onShowAll={showAllYears}
+        />
       </footer>
 
       {selected ? (
@@ -138,7 +181,8 @@ export default function App() {
           conflicts={conflicts}
           onClose={() => setSearchOpen(false)}
           onSelect={(id) => {
-            setYearWindow(FULL_RANGE);
+            setShowAll(true);
+            setPlaying(false);
             setSelectedId(id);
           }}
         />

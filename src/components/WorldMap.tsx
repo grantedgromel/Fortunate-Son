@@ -1,4 +1,11 @@
-import { useEffect, useMemo, useRef, useState, type RefObject } from "react";
+import {
+  memo,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type RefObject,
+} from "react";
 import {
   ComposableMap,
   Geographies,
@@ -9,6 +16,7 @@ import {
 import { geoOrthographic, geoDistance } from "d3-geo";
 import type { Conflict } from "../lib/types";
 import { isoOf } from "../lib/geo";
+import { isActiveInYear } from "../lib/filter";
 import { vinylLabelColor } from "../lib/vinyl";
 import { parseCasualtyMagnitude } from "../lib/casualties";
 import VinylDisc from "./VinylDisc";
@@ -25,6 +33,7 @@ const DEFAULT_ROTATION: [number, number] = [-12, -16];
 
 interface Props {
   conflicts: Conflict[];
+  activeYear: number | null;
   selectedId: string | null;
   hoveredId: string | null;
   onSelect: (id: string | null) => void;
@@ -39,8 +48,9 @@ interface Placed {
   mag: number;
 }
 
-export default function WorldMap({
+function WorldMap({
   conflicts,
+  activeYear,
   selectedId,
   hoveredId,
   onSelect,
@@ -291,6 +301,7 @@ export default function WorldMap({
           const isSel = c.id === selectedId;
           const isHov = c.id === hoveredId;
           const dim = Boolean(focusedId) && !isSel && !isHov;
+          const active = activeYear == null || isActiveInYear(c, activeYear);
           const sc = isSel ? 1.4 : isHov ? 1.18 : 1;
           const rr = r * sc;
           return (
@@ -300,8 +311,9 @@ export default function WorldMap({
               transform={`translate(${x},${y})`}
               style={{
                 cursor: "pointer",
-                opacity: dim ? 0.4 : 1,
-                transition: "opacity 0.2s",
+                opacity: !active ? 0 : dim ? 0.4 : 1,
+                pointerEvents: active ? "auto" : "none",
+                transition: "opacity 0.45s ease",
               }}
               onMouseEnter={() => onHover(c.id)}
               onMouseLeave={() => onHover(null)}
@@ -411,3 +423,5 @@ function HoverTooltip({
     </div>
   );
 }
+
+export default memo(WorldMap);

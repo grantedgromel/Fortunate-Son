@@ -1,5 +1,5 @@
-// Decade buckets for the bottom period strip. Each bucket is a [start, end)
-// year window; selecting one filters which conflicts appear on the map.
+// Year axis + decade buckets for the bottom timeline. AXIS_MIN..AXIS_PRESENT
+// is the scrubbable range; DECADES are the quick-jump points along it.
 
 export interface Period {
   id: string;
@@ -9,6 +9,7 @@ export interface Period {
 
 export const AXIS_MIN = 1945;
 export const AXIS_MAX = new Date().getFullYear() + 1;
+export const AXIS_PRESENT = new Date().getFullYear();
 
 export const DECADES: Period[] = [
   { id: "d50", label: "'50s", range: [1950, 1960] },
@@ -20,5 +21,3 @@ export const DECADES: Period[] = [
   { id: "d10", label: "'10s", range: [2010, 2020] },
   { id: "d20", label: "'20s", range: [2020, AXIS_MAX] },
 ];
-
-export const FULL_RANGE: [number, number] = [AXIS_MIN, AXIS_MAX];
