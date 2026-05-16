@@ -246,11 +246,6 @@ function WorldMap({
             <stop offset="40%" stopColor="#ffffff" stopOpacity="0.04" />
             <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
           </radialGradient>
-          <radialGradient id="flameGlow">
-            <stop offset="0%" stopColor="#e8631f" stopOpacity="0.5" />
-            <stop offset="55%" stopColor="#d8451a" stopOpacity="0.16" />
-            <stop offset="100%" stopColor="#d8451a" stopOpacity="0" />
-          </radialGradient>
           <pattern
             id="hatch"
             patternUnits="userSpaceOnUse"
