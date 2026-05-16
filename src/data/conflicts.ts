@@ -3357,37 +3357,42 @@ export const conflicts: Conflict[] = [
   },
 
   {
-    id: "first-chechen-war",
+    id: "chechen-wars",
     countries: ["RUS"],
-    name: "First Chechen War",
+    name: "Chechen Wars",
+    aka: ["First Chechen War", "Second Chechen War"],
     region: "Europe",
     country: "Russia (Chechnya)",
     coords: [45.7, 43.3],
     startYear: 1994,
-    endYear: 1996,
+    endYear: 2009,
     belligerents: [
       {
-        side: "Russia",
-        parties: ["Russian Federation (Armed Forces and Interior Troops)"],
+        side: "Russia & pro-Moscow Chechens",
+        parties: [
+          "Russian Federation (Armed Forces and Interior Troops)",
+          "Kadyrov-led pro-Moscow Chechen forces (later Kadyrovtsy)",
+        ],
       },
       {
-        side: "Chechen separatists",
+        side: "Chechen separatists & jihadists",
         parties: [
           "Chechen Republic of Ichkeria",
+          "Caucasus Emirate (post-2007 splinter)",
           "Foreign mujahideen volunteers",
         ],
       },
     ],
     casualties:
-      "Estimates of total dead range from 50,000 to 100,000, the great majority Chechen civilians; Grozny was reduced to ruins.",
+      "Across both wars, total dead are estimated at 50,000–100,000 or more, the great majority Chechen civilians; Grozny was reduced to ruins and a long insurgency spread across the North Caucasus.",
     summary:
-      "Russia's first attempt to suppress Chechen independence ended in a military stalemate, with the city of Grozny destroyed and casualties on both sides far higher than Moscow had anticipated. The Khasavyurt Accord of August 1996 produced an effective ceasefire and de facto Chechen autonomy until the second war began three years later.",
+      "Two wars fought over Chechnya's bid for independence from Russia. The first (1994–1996) ended in military stalemate and de facto Chechen autonomy after the Khasavyurt Accord. The second, launched by Vladimir Putin in 1999 after apartment bombings in Russian cities and a Chechen incursion into Dagestan, destroyed the separatists' conventional forces, installed the Kadyrov family in Grozny, and trailed into a North Caucasus insurgency marked by the Beslan school siege and the Moscow theatre hostage crisis; the federal operation was officially ended in 2009.",
     musicTracks: [
       {
         title: "Крылья (Wings)",
         artist: "Nautilus Pompilius",
         year: 1995,
-        note: "Used iconically in Aleksei Balabanov's Brat (1997), set against the immediate aftermath of the war; the song became inseparable from the post-war Russian cinematic generation.",
+        note: "Used iconically in Aleksei Balabanov's Brat (1997), set against the immediate aftermath of the first war; the song became inseparable from the post-war Russian cinematic generation.",
         youtubeId: "ouKj-7bc-ZQ",
       },
       {
@@ -3397,44 +3402,24 @@ export const conflicts: Conflict[] = [
         note: "Re-recorded for Brat 2 (2000) and tied across both films to the Chechen-veteran milieu and post-Soviet disorientation that the wars produced.",
         youtubeId: "29l3BXaOGrM",
       },
-    ],
-  },
-
-  {
-    id: "second-chechen-war",
-    countries: ["RUS"],
-    name: "Second Chechen War",
-    region: "Europe",
-    country: "Russia (Chechnya)",
-    coords: [45.7, 43.3],
-    startYear: 1999,
-    endYear: 2009,
-    belligerents: [
       {
-        side: "Russia & Pro-Moscow Chechens",
-        parties: [
-          "Russian Federation",
-          "Kadyrov-led pro-Moscow Chechen forces (later Kadyrovtsy)",
-        ],
+        title: "Полковнику никто не пишет (No One Writes to the Colonel)",
+        artist: "Би-2",
+        year: 2000,
+        note: "One of the signature songs of the Brat 2 soundtrack (2000); the bleak ballad attached itself to the disillusioned post-Chechen-war veteran the Brat films were built around.",
+        youtubeId: "1u7WN2zBEDc",
       },
-      {
-        side: "Chechen separatists & jihadists",
-        parties: [
-          "Chechen Republic of Ichkeria",
-          "Caucasus Emirate (post-2007 splinter)",
-        ],
-      },
-    ],
-    casualties:
-      "Estimates of total dead in the tens of thousands; the war produced a long tail of insurgency across the North Caucasus, the Beslan school siege, and the Moscow theatre hostage crisis.",
-    summary:
-      "Following apartment bombings in Russian cities and the Chechen incursion into Dagestan, Vladimir Putin launched a second war in 1999 that ended with the destruction of separatist conventional forces, the installation of the Kadyrov family in Grozny, and a long insurgency that bled across the North Caucasus into the Caucasus Emirate. The federal counter-terror operation was officially ended in 2009.",
-    musicTracks: [
       {
         title: "Kombat",
         artist: "Lyube",
-        note: "The Russian-army standard, already adopted in the Soviet–Afghan war, kept its place through the second Chechen campaign in veteran-association recordings of the period.",
+        note: "The Russian-army standard, already adopted in the Soviet–Afghan war, kept its place through the Chechen campaigns in veteran-association recordings of the period.",
         youtubeId: "GQ6zTI-YLwk",
+      },
+      {
+        title: "Здравствуй, мама (Hello, Mum)",
+        artist: "Мой двор",
+        note: "A sentimental barracks ballad in the Russian army-song tradition — a conscript's greeting home — of the kind that circulated among the young soldiers sent to Chechnya.",
+        youtubeId: "HTwcMM5j6x8",
       },
     ],
   },

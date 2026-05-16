@@ -18,7 +18,7 @@ import { AXIS_MIN, AXIS_PRESENT } from "./lib/periods";
 const AboutModal = lazy(() => import("./components/AboutModal"));
 
 // Years per second when the timeline is playing.
-const PLAYBACK_RATE = 3;
+const PLAYBACK_RATE = 1;
 
 function readHashId(): string | null {
   if (typeof window === "undefined") return null;
