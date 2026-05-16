@@ -17,8 +17,8 @@ export default function Header({ onSearch, onAbout }: Props) {
         </div>
       </div>
       <div className="mast-right">
-        <button className="about-btn mono micro" onClick={onAbout}>
-          ABOUT
+        <button className="about-btn" onClick={onAbout}>
+          <span>About</span>
         </button>
         <button className="search-btn" onClick={onSearch}>
           <span>Search</span>
