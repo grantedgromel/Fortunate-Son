@@ -163,6 +163,10 @@ export default function WorldMap({
           zoom={position.zoom}
           minZoom={1}
           maxZoom={8}
+          translateExtent={[
+            [0, 0],
+            [VIEW_W, VIEW_H],
+          ]}
           onMoveEnd={(p: Position) => setPosition(p)}
         >
           <Sphere
