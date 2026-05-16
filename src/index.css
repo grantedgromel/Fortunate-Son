@@ -150,6 +150,13 @@ button {
   position: relative;
   min-height: 580px;
 }
+.map-wrap.globe {
+  cursor: grab;
+  touch-action: none;
+}
+.map-wrap.globe:active {
+  cursor: grabbing;
+}
 .map-svg { width: 100%; height: 100%; display: block; }
 .map-loading {
   position: absolute;
@@ -313,6 +320,25 @@ button {
 @keyframes vspin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
+}
+
+/* ─── SHOCKWAVE PULSE (casualty-scaled marker rings) ─── */
+.shockwave {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: shockwave var(--shock-dur, 3.6s) ease-out infinite;
+  pointer-events: none;
+}
+@keyframes shockwave {
+  0%   { transform: scale(0.92); opacity: 0; }
+  14%  { opacity: 0.5; }
+  100% { transform: scale(2.7); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shockwave { animation: none; opacity: 0; }
+  .vinyl-spin,
+  .big-vinyl.spinning { animation: none; }
 }
 
 /* ─── CSS BIG VINYL (popover mini-disc) ─── */
