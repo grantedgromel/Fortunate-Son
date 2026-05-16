@@ -1098,6 +1098,26 @@ export const conflicts: Conflict[] = [
         note: "The 1974 single on which Thomas Mapfumo first transposed mbira music to the electric guitar — the foundational recording of the chimurenga sound that became the music of the liberation war.",
         youtubeId: "4Lvy-_SVUdU",
       },
+      {
+        title: "Rhodesians Never Die",
+        artist: "Clem Tholet",
+        year: 1973,
+        note: "The unofficial anthem of white Rhodesia during the Bush War — written by Clem Tholet, broadcast widely and sung by Rhodesian troops; the defining musical artifact of the government side.",
+        youtubeId: "7__8EI27pas",
+      },
+      {
+        title: "It's a Long Way to Mukumbura",
+        artist: "Traditional / Rhodesian Security Forces",
+        note: "A Rhodesian Security Forces marching song — a local rewrite of the First World War's \"It's a Long Way to Tipperary\" that names the Mukumbura operational area on the Mozambique border.",
+        youtubeId: "phJlbpsACn4",
+      },
+      {
+        title: "Africa",
+        artist: "Toto",
+        year: 1982,
+        note: "Toto's soft-rock hit has no link to the war itself, but it became a fixture of online Rhodesia-nostalgia culture decades later — a pure case of retrospective musical adoption.",
+        youtubeId: "FTQbiNvZqaY",
+      },
     ],
   },
 
