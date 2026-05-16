@@ -63,8 +63,6 @@ export default function ConflictPopover({
   const left = Math.max(8, Math.min(mapW - box.w - 8, anchor.x - box.w / 2));
   const pointerOffset = Math.max(20, Math.min(box.w - 20, anchor.x - left));
   const labelColor = vinylLabelColor(conflict.id);
-  const trimmed =
-    conflict.name.length > 18 ? conflict.name.slice(0, 16) + "…" : conflict.name;
 
   return (
     <div
@@ -84,9 +82,7 @@ export default function ConflictPopover({
             className="big-vinyl spinning"
             style={{ "--label": labelColor } as CSSProperties}
           >
-            <div className="bv-label">
-              <div className="bv-label-text serif">{trimmed}</div>
-            </div>
+            <div className="bv-label" />
             <div className="bv-spindle" />
           </div>
         </div>

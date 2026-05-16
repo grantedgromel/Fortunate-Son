@@ -249,7 +249,6 @@ button {
 .vp-mini-vinyl .big-vinyl {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25), inset 0 0 24px rgba(0, 0, 0, 0.4);
 }
-.vp-mini-vinyl .bv-label-text { font-size: 7px; padding: 0 6%; }
 .vp-mini-vinyl .bv-spindle { width: 4px; height: 4px; margin: -2px; }
 .vp-titles { min-width: 0; padding-right: 22px; }
 .vp-eyebrow { letter-spacing: 0.16em; margin-bottom: 4px; }
@@ -346,15 +345,6 @@ button {
     inset 0 0 0 4px color-mix(in oklab, var(--label) 70%, #000),
     inset 0 0 0 5px rgba(255, 255, 255, 0.08);
   overflow: hidden;
-}
-.bv-label-text {
-  color: rgba(255, 255, 255, 0.92);
-  font-weight: 600;
-  font-size: 11px;
-  line-height: 1.05;
-  text-align: center;
-  padding: 0 10%;
-  text-wrap: balance;
 }
 .bv-spindle {
   position: absolute;
