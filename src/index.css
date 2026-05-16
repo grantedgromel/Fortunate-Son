@@ -331,9 +331,39 @@ button {
   100% { transform: scale(2.7); opacity: 0; }
 }
 
+/* ─── BURNING DISC (focused marker) ─── */
+.vinyl-fire { animation: fire-in 0.18s ease-out; }
+@keyframes fire-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.vinyl-flame {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation-name: flame-flicker;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes flame-flicker {
+  0%   { transform: scaleY(0.8) scaleX(1.08);  opacity: 0.72; }
+  100% { transform: scaleY(1.16) scaleX(0.9);  opacity: 1; }
+}
+.vinyl-glow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: glow-pulse 0.5s ease-in-out infinite alternate;
+}
+@keyframes glow-pulse {
+  from { opacity: 0.65; transform: scale(0.92); }
+  to   { opacity: 1;    transform: scale(1.08); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .shockwave { animation: none; opacity: 0; }
-  .vinyl-spin { animation: none; }
+  .vinyl-spin,
+  .vinyl-flame,
+  .vinyl-glow { animation: none; }
 }
 
 /* ─── TRACK ROWS ─── */
