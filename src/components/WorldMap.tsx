@@ -12,7 +12,7 @@ import { isoOf } from "../lib/geo";
 import { vinylLabelColor } from "../lib/vinyl";
 import { parseCasualtyMagnitude } from "../lib/casualties";
 import VinylDisc from "./VinylDisc";
-import ConflictPopover from "./ConflictPopover";
+import ConflictPanel from "./ConflictPanel";
 
 const GEO_URL = "/countries-110m.json";
 const VIEW_W = 980;
@@ -111,6 +111,8 @@ export default function WorldMap({
     const el = wrapRef.current;
     if (!el) return;
     const onWheel = (e: WheelEvent) => {
+      const t = e.target as Element | null;
+      if (t && t.closest(".conflict-panel")) return; // let the panel scroll
       e.preventDefault();
       const factor = e.deltaY < 0 ? 1.12 : 1 / 1.12;
       setScale((s) => Math.max(MIN_SCALE, Math.min(MAX_SCALE, s * factor)));
@@ -348,12 +350,14 @@ export default function WorldMap({
         </button>
       </div>
 
-      <MapOverlays
+      <HoverTooltip
         wrapRef={wrapRef}
-        selected={selected}
         hovered={hovered}
-        onClose={() => onSelect(null)}
+        selectedId={selectedId}
       />
+      {selected ? (
+        <ConflictPanel conflict={selected} onClose={() => onSelect(null)} />
+      ) : null}
     </div>
   );
 }
@@ -376,62 +380,41 @@ function measure(wrap: HTMLElement, id: string): Rect | null {
   };
 }
 
-// Overlay layer (hover tooltip + anchored popover). Holds its own per-frame
-// anchor state so tracking the markers never re-renders the map SVG.
-function MapOverlays({
+// Hover tooltip — tracks the hovered marker per-frame in its own state so it
+// never re-renders the map SVG.
+function HoverTooltip({
   wrapRef,
-  selected,
   hovered,
-  onClose,
+  selectedId,
 }: {
   wrapRef: RefObject<HTMLDivElement | null>;
-  selected: Conflict | null;
   hovered: Conflict | null;
-  onClose: () => void;
+  selectedId: string | null;
 }) {
-  const [selRect, setSelRect] = useState<Rect | null>(null);
-  const [hovRect, setHovRect] = useState<Rect | null>(null);
-  const [mapSize, setMapSize] = useState({ w: 1200, h: 600 });
+  const [rect, setRect] = useState<Rect | null>(null);
 
   useEffect(() => {
     const wrap = wrapRef.current;
-    // Stale rects are harmless — the render guards on `selected` / `hovered`.
-    if (!wrap || (!selected && !hovered)) return;
+    if (!wrap || !hovered) return;
     let raf = 0;
     const tick = () => {
-      const w = wrap.getBoundingClientRect();
-      setMapSize({ w: w.width, h: w.height });
-      setSelRect(selected ? measure(wrap, selected.id) : null);
-      setHovRect(hovered ? measure(wrap, hovered.id) : null);
+      setRect(measure(wrap, hovered.id));
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [wrapRef, selected, hovered]);
+  }, [wrapRef, hovered]);
 
+  if (!hovered || hovered.id === selectedId || !rect) return null;
   return (
-    <>
-      {hovered && hovered.id !== selected?.id && hovRect ? (
-        <div
-          className="vinyl-tip"
-          style={{ left: hovRect.x, top: hovRect.y - hovRect.r - 6 }}
-        >
-          <div className="serif vt-title">{hovered.name}</div>
-          <div className="mono micro vt-years">
-            {hovered.startYear}–{hovered.endYear ?? "present"}
-          </div>
-        </div>
-      ) : null}
-
-      {selected && selRect ? (
-        <ConflictPopover
-          conflict={selected}
-          anchor={selRect}
-          mapW={mapSize.w}
-          mapH={mapSize.h}
-          onClose={onClose}
-        />
-      ) : null}
-    </>
+    <div
+      className="vinyl-tip"
+      style={{ left: rect.x, top: rect.y - rect.r - 6 }}
+    >
+      <div className="serif vt-title">{hovered.name}</div>
+      <div className="mono micro vt-years">
+        {hovered.startYear}–{hovered.endYear ?? "present"}
+      </div>
+    </div>
   );
 }
